@@ -1,0 +1,60 @@
+require(dplyr)
+require(data.table)
+require(ggplot2)
+require(RColorBrewer)
+
+bradesco_highusers <- fread("d:/Users/sb046971/Documents/bradesco_highusers.csv", dec = ",")
+
+
+dynamics <- bradesco_highusers %>% group_by(Referenciado) %>% summarise(
+  med_dias = mean(`Dias Evento x Pagamento`),
+  med_meses = mean(`Meses Evento x Pagamento`),
+  valor_total = sum(`Valor Total`),
+  valor_recibo = sum(`Valor Recibo`))
+
+dynamics2 <- bradesco_highusers %>% group_by(Referenciado,Paciente) %>% summarise(
+  med_dias = mean(`Dias Evento x Pagamento`),
+  med_meses = mean(`Meses Evento x Pagamento`),
+  valor_total = sum(`Valor Total`),
+  valor_recibo = sum(`Valor Recibo`))
+
+dynamics3 <- bradesco_highusers %>% group_by(Referenciado,
+                                             `Dias Evento x Pagamento`,
+                                             `Meses Evento x Pagamento`) %>% summarise(
+                                               total = sum(`Valor Total`))
+
+dynamics3$dias <- ifelse(dynamics3$`Dias Evento x Pagamento` > 120, "true","false")
+
+dynamics4 <- dynamics3 %>% filter(
+  dias %in% "true") %>% group_by(
+    Referenciado,`Dias Evento x Pagamento`,`Meses Evento x Pagamento`) %>% summarise(
+      total = sum(total))
+
+fwrite(dynamics4, file = "D:/Users/sb046971/Desktop/Dinamica4.csv", sep = "|", dec = ",")
+fwrite(dynamics, file = "D:/Users/sb046971/Desktop/Dinamica1.csv", sep = "|", dec = ",")
+fwrite(dynamics2, file = "D:/Users/sb046971/Desktop/Dinamica2.csv", sep = "|", dec = ",")
+
+#plot(density(dynamics$med_dias, na.rm = T),xlim = c(0,333),
+#     col = "red",
+#     main = "Incidência da média de dias",
+#     xlab = "Média", ylab="Incidência",lwd=2)
+#lines(density(dynamics$med_meses, na.rm = T), col = "black",lwd=2)
+#legend("topright", legend=c("Média de Dias"),lty=1, lwd = 2,
+#       col=c("red"))
+
+ggplot(dynamics, aes(x = med_dias)) + 
+  geom_density(fill = "#4271AE", colour = "#1F3552",alpha = 0.6) + 
+  scale_x_continuous(name = "Mean", breaks = seq(0,300,25)) + 
+  scale_y_continuous(name = "Incidence") + ggtitle("Average Days Incidence") +
+  theme_bw() + theme(axis.line = element_line(size=1, colour = "black"),
+                     panel.grid.major = element_line(colour = "#d3d3d3"),
+                     panel.grid.minor = element_blank(),
+                     panel.border = element_blank(),
+                     panel.background = element_blank(),
+                     plot.title = element_text(size = 14, family = "Tahoma", 
+                                               face = "bold", hjust = 0.5),
+                     text=element_text(family="Tahoma"),
+                     axis.text.x=element_text(colour="black", size = 9),
+                     axis.text.y=element_text(colour="black", size = 9)) +
+  geom_vline(xintercept = 120, size = 1, colour = "#FF3721", linetype = "dashed")
+  
