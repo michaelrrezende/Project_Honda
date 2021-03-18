@@ -17,7 +17,7 @@ assign("last.warning", NULL, envir = baseenv())
 #### CHANGE CUT CENTURY FOR AGE // BECAUSE THE DEFAULT IS 1970 - 2070 ####
 
 options(chron.year.expand = 
-          function (y, cut.off = 20, century = c(1900, 2000), ...) {
+          function (y, cut.off = 21, century = c(1900, 2000), ...) {
             chron:::year.expand(y, cut.off = cut.off, century = century, ...)
           }
 )
@@ -625,12 +625,37 @@ mes0120$`VALOR DO RECIBO` <- mes0120$`VALOR DO RECIBO`/100
 mes0120$`VALOR DO SINISTRO` <- mes0120$`VALOR DO SINISTRO`/100
 mes0120$`VALOR DE INSS OU ISS ($)` <- mes0120$`VALOR DE INSS OU ISS ($)`/100
 
+#mes 02/2020
+
+mes0220 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN2002_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0220$"VALOR PAGO" <- mes0220$"VALOR PAGO"/100
+mes0220$`VALOR DO RECIBO` <- mes0220$`VALOR DO RECIBO`/100
+mes0220$`VALOR DO SINISTRO` <- mes0220$`VALOR DO SINISTRO`/100
+mes0220$`VALOR DE INSS OU ISS ($)` <- mes0220$`VALOR DE INSS OU ISS ($)`/100
+
+
 #### BIND DATABASE ALL MONTHS ####
 
 bradesco_consolidado <- bind_rows(mes0518,mes0618,mes0718,mes0818,mes0918,mes1018,
                                   mes1118,mes1218,mes0119,mes0219,mes0319,mes0419,
                                   mes0519,mes0619,mes0719,mes0819,mes0919,mes1019,
-                                  mes1119,mes1219,mes0120[])
+                                  mes1119,mes1219,mes0120,mes0220)
 
 #### TREATMENT DATABASE FACTORS ####
 
@@ -657,18 +682,6 @@ bradesco_consolidado$`GRAU DE PARENTESCO` <- factor(
   bradesco_consolidado$`GRAU DE PARENTESCO`,
   label = c("Titular","Conjuge","Filho","Mãe","Pai",
             "Sogro","Sogra","Tutelado","Outros"),levels = 0:8)
-
-
-bradesco_consolidado$COMPETENCIA <- format(bradesco_consolidado$`DATA DO PAGAMENTO`,
-                                           "%d/%m/%Y")
-bradesco_consolidado$COMPETENCIA <- substr(bradesco_consolidado$COMPETENCIA, 
-                                           start = 4, stop = 11)
-
-bradesco_consolidado$COMPETENCIA2 <- format(bradesco_consolidado$`DATA DO EVENTO(Y2K)`,
-                                           "%d/%m/%Y")
-bradesco_consolidado$COMPETENCIA2 <- substr(bradesco_consolidado$COMPETENCIA2, 
-                                           start = 4, stop = 11)
-
 
 bradesco_consolidado$newtype <- paste(bradesco_consolidado$`TIPO DE EVENTO`,
                                       bradesco_consolidado$`CÓDIGO DO PROCEDIMENTO`)
@@ -778,6 +791,19 @@ bradesco_consolidado$`DATA DO PAGAMENTO(Y2K)` <- as.character(
 
 bradesco_consolidado$`DATA DO PAGAMENTO(Y2K)` <- as.Date(chron(format(as.Date(
   bradesco_consolidado$`DATA DO PAGAMENTO(Y2K)`, format = "%Y%m%d"),"%m/%d/%y")))
+
+
+### CREATE DATES MON/YEAR
+
+bradesco_consolidado$COMPETENCIA <- format(bradesco_consolidado$`DATA DO PAGAMENTO`,"%d/%m/%Y")
+
+bradesco_consolidado$COMPETENCIA <- substr(bradesco_consolidado$COMPETENCIA,
+                                           start = 4, stop = 11)
+
+bradesco_consolidado$COMPETENCIA2 <- format(bradesco_consolidado$`DATA DO EVENTO(Y2K)`,
+                                            "%d/%m/%Y")
+bradesco_consolidado$COMPETENCIA2 <- substr(bradesco_consolidado$COMPETENCIA2, 
+                                            start = 4, stop = 11)
 
 #### SELECT DUPLICATED LINES TO DATA AND DROP ####
 
@@ -1145,6 +1171,24 @@ fwrite(rank_proc, file = "D:/Users/sb046971/Documents/Ranking_proc.csv", dec = "
 lcap_JTA <- bradesco_consolidado %>% filter(`NOME DO SEGURADO` == "JORGE TSUGUO ADATI")
 
 fwrite(lcap_JTA, file = "D:/Users/sb046971/Documents/lcap_JTA.csv", sep = "|", dec = ",")
+
+lcap_SBJ <- bradesco_consolidado %>% filter(`NOME DO SEGURADO` == "SERGIO BELLETTI JUNIOR")
+
+fwrite(lcap_SBJ, file = "D:/Users/sb046971/Documents/lcap_SBJ.csv", sep = "|", dec = ",")
+
+lcap_MRM <- bradesco_consolidado %>% filter(`NOME DO SEGURADO` == "MATEUS RIOITI MORITA")
+
+fwrite(lcap_MRM, file = "D:/Users/sb046971/Documents/lcap_MRM.csv", sep = "|", dec = ",")
+
+lcap_ENV <- bradesco_consolidado %>% filter(`NOME DO SEGURADO` == "EDUARDO DE NOVAIS VITORINO")
+
+fwrite(lcap_ENV, file = "D:/Users/sb046971/Documents/lcap_ENV.csv", sep = "|", dec = ",")
+
+analysis29 <- bradesco_consolidado %>% filter(grepl("QUIMIO", `NOME DO PROCEDIMENTO`) 
+                                              | grepl("RADIOT", `NOME DO PROCEDIMENTO`)) %>% 
+  select(`NOME DO SEGURADO`,`NOME DO PACIENTE`,`NOME DO PROCEDIMENTO`) %>% distinct()
+
+fwrite(analysis29, file = "D:/Users/sb046971/Documents/Terap_Colab_bradesco.csv", sep ="|")
 
 #### forecast claim ####
 

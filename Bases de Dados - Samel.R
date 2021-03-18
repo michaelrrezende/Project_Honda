@@ -17,7 +17,7 @@ assign("last.warning", NULL, envir = baseenv())
 #### CHANGE CUT CENTURY FOR AGE // BECAUSE THE DEFAULT IS 1970 - 2070 ####
 
 options(chron.year.expand =
-          function (y, cut.off = 20, century = c(1900, 2000), ...) {
+          function (y, cut.off = 21, century = c(1900, 2000), ...) {
             chron:::year.expand(y, cut.off = cut.off, century = century, ...)
           }
 )
@@ -28,6 +28,41 @@ setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/honda/")
 
 base_samel <- list.files(pattern = "Moto Honda") %>% lapply(
   fread, h = T, encoding = "UTF-8") %>% bind_rows()
+
+
+#### new data ####
+
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2018/honda componente/")
+
+base_samel_comp_18 <- list.files(pattern = "hond") %>% lapply(
+  fread, h = T, encoding = "Latin-1") %>% bind_rows()
+
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2018/honda trading/")
+
+base_samel_trad_18 <- list.files(pattern = "hond") %>% lapply(
+  fread, h = T, encoding = "Latin-1") %>% bind_rows()
+
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2018/moto honda/")
+
+base_samel_motoh_18 <- list.files(pattern = "hond") %>% lapply(
+  fread, h = T, encoding = "Latin-1") %>% bind_rows()
+
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2019/honda componente/")
+
+base_samel_comp_19 <- list.files(pattern = "hond") %>% lapply(
+  fread, h = T, encoding = "Latin-1") %>% bind_rows()
+
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2019/honda trading/")
+
+base_samel_trad_19 <- list.files(pattern = "hond") %>% lapply(
+  fread, h = T, encoding = "Latin-1") %>% bind_rows()
+
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2019/moto honda/")
+
+base_samel_motoh_19 <- list.files(pattern = "hond") %>% lapply(
+  fread, h = T, encoding = "Latin-1") %>% bind_rows()
+
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/")
 
 #### REPLACE NUMERIC VALUES #####
 

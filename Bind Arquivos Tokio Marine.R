@@ -3,7 +3,7 @@ require(data.table)
 
 ############# BIND POLLYANA ARQUIVOS DE SEGURO DE VIDA ######
 
-setwd("D:/Users/sb046971/Documents/Tokio Bind/TÁBUA BIOMÉTRICA 012020/")
+setwd("D:/Users/sb046971/Documents/Tokio Bind/TÁBUA BIOMÉTRICA 022020/")
 
 base <- list.files(pattern = ".csv") %>%
   lapply(fread,dec = ",",colClasses = c("ESTITULANTE" = "character",
@@ -23,7 +23,7 @@ base <- list.files(pattern = ".csv") %>%
                   "PREMIO DESP MED E ODONTO","DATA_ADMISSAO","DATA_INI_VIGENCIA",
                   "SEXO","ESTADO_CIVIL"))  %>% bind_rows
 
-fwrite(base,file = "d:/Users/sb046971/Documents/Tokio Bind/TÁBUA BIOMÉTRICA 012020/BASEFINAL.CSV",
+fwrite(base,file = "d:/Users/sb046971/Documents/Tokio Bind/TÁBUA BIOMÉTRICA 022020/BASEFINAL.CSV",
        sep = "|", dec = ",")
 
 base$DATA_ADMISSAO <- as.Date(base$DATA_ADMISSAO, "%Y%m%d")
@@ -251,4 +251,3 @@ gc()
 
 gc()
 gc()
-

@@ -17,7 +17,7 @@ assign("last.warning", NULL, envir = baseenv())
 #### CHANGE CUT CENTURY FOR AGE // BECAUSE THE DEFAULT IS 1970 - 2070 ####
 
 options(chron.year.expand =
-          function (y, cut.off = 20, century = c(1900, 2000), ...) {
+          function (y, cut.off = 21, century = c(1900, 2000), ...) {
             chron:::year.expand(y, cut.off = cut.off, century = century, ...)
           }
 )
@@ -1419,3 +1419,9 @@ analysis19 <- base_unimed %>% filter(grepl('2019',
                                              `Nome do titular`,
                                              `Nome do paciente`) %>% summarise(
                                                valor = sum(`Valor`))
+
+analysis20 <- unimed %>% filter(grepl("QUIMIO", `Descrição do serviço`) 
+                                | grepl("RADIOT", `Descrição do serviço`)) %>% 
+  select(`Nome do titular`, `Nome do paciente`,`Descrição do serviço`) %>% distinct()
+
+fwrite(analysis20, file = "D:/Users/sb046971/Documents/Terap_Colab_unimed.csv", sep ="|")
