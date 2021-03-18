@@ -17,14 +17,14 @@ assign("last.warning", NULL, envir = baseenv())
 #### CHANGE CUT CENTURY FOR AGE // BECAUSE THE DEFAULT IS 1970 - 2070 ####
 
 options(chron.year.expand =
-          function (y, cut.off = 21, century = c(1900, 2000), ...) {
+          function (y, cut.off = 22, century = c(1900, 2000), ...) {
             chron:::year.expand(y, cut.off = cut.off, century = century, ...)
           }
 )
 
 #### CREATE LIST.FILES FROM BIND LINES IN 1 ARCHIVE ####
 
-setwd("D:/Users/sb046971/Documents/Sinistro Unimed/")
+setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/")
 
 mes04.18 <- list.files(pattern = "PP_201804") %>% lapply(
   fread, h = F, sep = NULL) %>% bind_rows()
@@ -119,6 +119,46 @@ mes10.19 <- list.files(pattern = "PP_201910") %>% lapply(
 
 mes10.19$V1 <- str_replace_all(mes10.19$V1, "\"", " ")
 
+mes11.19 <- list.files(pattern = "PP_201911") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "\"", " ")
+
+mes12.19 <- list.files(pattern = "PP_201912") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "\"", " ")
+
+mes01.20 <- list.files(pattern = "PP_202001") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "\"", " ")
+
+mes02.20 <- list.files(pattern = "PP_202002") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "\"", " ")
+
+mes03.20 <- list.files(pattern = "PP_202003") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "\"", " ")
+
+mes04.20 <- list.files(pattern = "PP_202004") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "\"", " ")
+
+mes05.20 <- list.files(pattern = "PP_202005") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "\"", " ")
+
+mes06.20 <- list.files(pattern = "PP_202006") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "\"", " ")
+
 ###### REPLACE SPECIAL CHARACTERS #######
 
 mes04.18$V1 <- str_replace_all(mes04.18$V1, "ª", "a")
@@ -140,6 +180,14 @@ mes07.19$V1 <- str_replace_all(mes07.19$V1, "ª", "a")
 mes08.19$V1 <- str_replace_all(mes08.19$V1, "ª", "a")
 mes09.19$V1 <- str_replace_all(mes09.19$V1, "ª", "a")
 mes10.19$V1 <- str_replace_all(mes10.19$V1, "ª", "a")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "ª", "a")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "ª", "a")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "ª", "a")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "ª", "a")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "ª", "a")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "ª", "a")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "ª", "a")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "ª", "a")
 
 mes04.18$V1 <- str_replace_all(mes04.18$V1, "ã", "a")
 mes04.18$V1 <- str_replace_all(mes04.18$V1, "à", "a")
@@ -508,8 +556,175 @@ mes10.19$V1 <- str_replace_all(mes10.19$V1, "Ô", "O")
 mes10.19$V1 <- str_replace_all(mes10.19$V1, "â", "a")
 mes10.19$V1 <- str_replace_all(mes10.19$V1, "Â", "A")
 
-##### WRITE ARCHIVES #####
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "\"", "")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "ã", "a")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "à", "a")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "á", "a")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "Á", "A")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "À", "A")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "Ã", "A")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "Ç", "C")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "É", "E")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "È", "E")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "Ó", "O")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "í", "i")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "õ", "o")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "Í", "I")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "Ú", "U")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "ú", "u")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "õ", "o")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "Ô", "O")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "â", "a")
+mes11.19$V1 <- str_replace_all(mes11.19$V1, "Â", "A")
 
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "\"", "")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "ã", "a")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "à", "a")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "á", "a")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "Á", "A")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "À", "A")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "Ã", "A")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "Ç", "C")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "É", "E")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "È", "E")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "Ó", "O")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "í", "i")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "õ", "o")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "Í", "I")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "Ú", "U")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "ú", "u")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "õ", "o")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "Ô", "O")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "â", "a")
+mes12.19$V1 <- str_replace_all(mes12.19$V1, "Â", "A")
+
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "\"", "")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "ã", "a")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "à", "a")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "á", "a")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "Á", "A")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "À", "A")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "Ã", "A")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "Ç", "C")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "É", "E")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "È", "E")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "Ó", "O")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "í", "i")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "õ", "o")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "Í", "I")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "Ú", "U")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "ú", "u")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "õ", "o")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "Ô", "O")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "â", "a")
+mes01.20$V1 <- str_replace_all(mes01.20$V1, "Â", "A")
+
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "\"", "")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "ã", "a")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "à", "a")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "á", "a")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "Á", "A")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "À", "A")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "Ã", "A")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "Ç", "C")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "É", "E")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "È", "E")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "Ó", "O")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "í", "i")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "õ", "o")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "Í", "I")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "Ú", "U")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "ú", "u")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "õ", "o")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "Ô", "O")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "â", "a")
+mes02.20$V1 <- str_replace_all(mes02.20$V1, "Â", "A")
+
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "\"", "")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "ã", "a")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "à", "a")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "á", "a")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "Á", "A")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "À", "A")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "Ã", "A")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "Ç", "C")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "É", "E")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "È", "E")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "Ó", "O")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "í", "i")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "õ", "o")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "Í", "I")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "Ú", "U")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "ú", "u")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "õ", "o")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "Ô", "O")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "â", "a")
+mes03.20$V1 <- str_replace_all(mes03.20$V1, "Â", "A")
+
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "\"", "")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "ã", "a")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "à", "a")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "á", "a")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "Á", "A")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "À", "A")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "Ã", "A")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "Ç", "C")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "É", "E")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "È", "E")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "Ó", "O")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "í", "i")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "õ", "o")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "Í", "I")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "Ú", "U")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "ú", "u")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "õ", "o")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "Ô", "O")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "â", "a")
+mes04.20$V1 <- str_replace_all(mes04.20$V1, "Â", "A")
+
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "\"", "")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "ã", "a")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "à", "a")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "á", "a")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "Á", "A")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "À", "A")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "Ã", "A")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "Ç", "C")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "É", "E")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "È", "E")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "Ó", "O")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "í", "i")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "õ", "o")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "Í", "I")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "Ú", "U")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "ú", "u")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "õ", "o")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "Ô", "O")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "â", "a")
+mes05.20$V1 <- str_replace_all(mes05.20$V1, "Â", "A")
+
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "\"", "")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "ã", "a")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "à", "a")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "á", "a")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "Á", "A")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "À", "A")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "Ã", "A")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "Ç", "C")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "É", "E")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "È", "E")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "Ó", "O")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "í", "i")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "õ", "o")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "Í", "I")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "Ú", "U")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "ú", "u")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "õ", "o")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "Ô", "O")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "â", "a")
+mes06.20$V1 <- str_replace_all(mes06.20$V1, "Â", "A")
+
+##### WRITE ARCHIVES #####
 
 fwrite(mes04.18, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201804_PP.txt",
        quote = F)
@@ -548,6 +763,22 @@ fwrite(mes08.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201908_PP.t
 fwrite(mes09.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201909_PP.txt", 
        quote = F)
 fwrite(mes10.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201910_PP.txt", 
+       quote = F)
+fwrite(mes11.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201911_PP.txt", 
+       quote = F)
+fwrite(mes12.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201912_PP.txt", 
+       quote = F)
+fwrite(mes01.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202001_PP.txt", 
+       quote = F)
+fwrite(mes02.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202002_PP.txt", 
+       quote = F)
+fwrite(mes03.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202003_PP.txt", 
+       quote = F)
+fwrite(mes04.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202004_PP.txt", 
+       quote = F)
+fwrite(mes05.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202005_PP.txt", 
+       quote = F)
+fwrite(mes06.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202006_PP.txt", 
        quote = F)
 
 #### WIDTHS AND NAMES LAYOUT BRADESCO ####
@@ -1214,11 +1445,300 @@ mes1019$`Valor` <- mes1019$`Valor`/100
 mes1019$`Taxa Administrativa` <- mes1019$`Taxa Administrativa`/100000
 mes1019$`Valor copart` <- mes1019$`Valor copart`/100
 
+mes1119 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/Documents/Sinistro Unimed/201911_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes1119$`Quantidade` <- mes1119$`Quantidade`/100
+mes1119$`Qtd ch` <- mes1119$`Qtd ch`/100
+mes1119$`Valor` <- mes1119$`Valor`/100
+mes1119$`Taxa Administrativa` <- mes1119$`Taxa Administrativa`/100000
+mes1119$`Valor copart` <- mes1119$`Valor copart`/100
+
+mes1219 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/Documents/Sinistro Unimed/201912_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes1219$`Quantidade` <- mes1219$`Quantidade`/100
+mes1219$`Qtd ch` <- mes1219$`Qtd ch`/100
+mes1219$`Valor` <- mes1219$`Valor`/100
+mes1219$`Taxa Administrativa` <- mes1219$`Taxa Administrativa`/100000
+mes1219$`Valor copart` <- mes1219$`Valor copart`/100
+
+mes0120 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202001_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0120$`Quantidade` <- mes0120$`Quantidade`/100
+mes0120$`Qtd ch` <- mes0120$`Qtd ch`/100
+mes0120$`Valor` <- mes0120$`Valor`/100
+mes0120$`Taxa Administrativa` <- mes0120$`Taxa Administrativa`/100000
+mes0120$`Valor copart` <- mes0120$`Valor copart`/100
+
+mes0220 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202002_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0220$`Quantidade` <- mes0220$`Quantidade`/100
+mes0220$`Qtd ch` <- mes0220$`Qtd ch`/100
+mes0220$`Valor` <- mes0220$`Valor`/100
+mes0220$`Taxa Administrativa` <- mes0220$`Taxa Administrativa`/100000
+mes0220$`Valor copart` <- mes0220$`Valor copart`/100
+
+mes0320 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202002_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0320$`Quantidade` <- mes0320$`Quantidade`/100
+mes0320$`Qtd ch` <- mes0320$`Qtd ch`/100
+mes0320$`Valor` <- mes0320$`Valor`/100
+mes0320$`Taxa Administrativa` <- mes0320$`Taxa Administrativa`/100000
+mes0320$`Valor copart` <- mes0320$`Valor copart`/100
+
+mes0420 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202004_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0420$`Quantidade` <- mes0420$`Quantidade`/100
+mes0420$`Qtd ch` <- mes0420$`Qtd ch`/100
+mes0420$`Valor` <- mes0420$`Valor`/100
+mes0420$`Taxa Administrativa` <- mes0420$`Taxa Administrativa`/100000
+mes0420$`Valor copart` <- mes0420$`Valor copart`/100
+
+mes0520 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202005_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0520$`Quantidade` <- mes0520$`Quantidade`/100
+mes0520$`Qtd ch` <- mes0520$`Qtd ch`/100
+mes0520$`Valor` <- mes0520$`Valor`/100
+mes0520$`Taxa Administrativa` <- mes0520$`Taxa Administrativa`/100000
+mes0520$`Valor copart` <- mes0520$`Valor copart`/100
+
+mes0620 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202006_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0620$`Quantidade` <- mes0620$`Quantidade`/100
+mes0620$`Qtd ch` <- mes0620$`Qtd ch`/100
+mes0620$`Valor` <- mes0620$`Valor`/100
+mes0620$`Taxa Administrativa` <- mes0620$`Taxa Administrativa`/100000
+mes0620$`Valor copart` <- mes0620$`Valor copart`/100
+
 #### BIND DATABASE ALL MONTHS ####
 
 unimed_consolidado <- bind_rows(mes0518,mes0618,mes0718,mes0818,mes0918,mes1018,mes1118,
                                 mes1218,mes0119,mes0219,mes0319,mes0419,mes0519,mes0619,
-                                mes0719,mes0819,mes0919,mes1019)
+                                mes0719,mes0819,mes0919,mes1019,mes1119,mes1219,mes0120,
+                                mes0220,mes0420,mes0520,mes0620)
 
 
 unimed_consolidado$DUPLICADOS <- duplicated(unimed_consolidado)
@@ -1406,6 +1926,11 @@ fwrite(base_unimed, file = "D:/Users/sb046971/Documents/base_unimed.csv",
 # lcapMLO <- base_unimed %>% filter(`Nome do paciente` == "MIGUEL LIMA DE OLIVEIRA")
 # 
 # fwrite(lcapMLO, file = "D:/Users/sb046971/Documents/lcap - MLO.csv", dec = ",", sep = "|")
+
+# lcapESSM <- unimed_consolidad %>% filter(`Nome do paciente` == "EMANUEL SOARES SILVA MIRANDA")
+# 
+# fwrite(lcapESSM, file = "D:/Users/sb046971/Documents/lcap - ESSM.csv", dec = ",", sep = "|")
+
 
 analysis17 <- base_unimed %>% filter(grepl('DOMICILIAR',`Descrição do serviço`))
 

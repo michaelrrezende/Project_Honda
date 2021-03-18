@@ -12,7 +12,7 @@ require(extrafont)
 #### CHANGE CUT CENTURY FOR AGE // BECAUSE THE DEFAULT IS 1970 - 2070 ####
 
 options(chron.year.expand =
-          function (y, cut.off = 20, century = c(1900, 2000), ...) {
+          function (y, cut.off = 22, century = c(1900, 2000), ...) {
             chron:::year.expand(y, cut.off = cut.off, century = century, ...)
           }
 )
@@ -39,7 +39,7 @@ names = c("CodigoRegistro","EmpresaPagadora","CodBenefTitular",
 #### READ ALL MONTHS AND TREATMENT DATES ####
 
 sulamericatxt <- readr:: read_fwf(file = 
-                "D:/Users/sb046971/Documents/Sinistro Sulamerica/66727.txt", 
+                "D:/Users/sb046971/Documents/Sinistro Sulamerica/SulamericaReajuste2.txt", 
                 fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
                 col_types = cols("CodigoRegistro" = col_character(),
                                  "EmpresaPagadora" = col_character(),
@@ -122,8 +122,6 @@ sulamerica_sd <- sulamericatxt  %>% select(-CodigoRegistro,-EmpresaPagadora,
                                            -CodServicoPrincipal,-InicioCobranca,
                                            -FimCobranca,-Espaço2)
 
-sulamerica_sd$DUPLICADOS <- duplicated(sulamerica_sd)
-
 sulamerica_sd %>% filter(DUPLICADOS == "TRUE") %>% group_by(.
                                                             ) %>% summarise(sum(ValorPago))
 
@@ -133,12 +131,12 @@ sulamerica_sd$Competencia <- substr(sulamerica_sd$DataPagamento, start = 1, stop
 
 sulamerica_sd %>% group_by(Competencia) %>% summarise(sum(ValorPago))
 
-sulamerica_sd$diaEvxPg <- difftime(sulamerica_sd$DataPagamento,
-                                   sulamerica_sd$DataAtendimento,units = "days")
+sulamerica_sd$diaEvxPg <- difftime(sulamericatxt$DataPagamento,
+                                   sulamericatxt$DataAtendimento,units = "days")
 
 sulamerica_sd$diaEvxPg <- as.numeric(sulamerica_sd$diaEvxPg)
 
-sulamerica_sd$mesEvxPg <-floor((as.double(sulamerica_sd$diaEvxPg)/365)*12)
+sulamerica_sd$mesEvxPg <- floor((as.double(sulamerica_sd$diaEvxPg)/365)*12)
 
 sulamerica_sd$flag12meses <- if_else(sulamerica_sd$mesEvxPg > 11,"+","0")
 

@@ -17,7 +17,7 @@ assign("last.warning", NULL, envir = baseenv())
 #### CHANGE CUT CENTURY FOR AGE // BECAUSE THE DEFAULT IS 1970 - 2070 ####
 
 options(chron.year.expand =
-          function (y, cut.off = 21, century = c(1900, 2000), ...) {
+          function (y, cut.off = 22, century = c(1900, 2000), ...) {
             chron:::year.expand(y, cut.off = cut.off, century = century, ...)
           }
 )
@@ -32,37 +32,50 @@ base_samel <- list.files(pattern = "Moto Honda") %>% lapply(
 
 #### new data ####
 
-setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2018/honda componente/")
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda-2/honda/2018/honda componente/")
 
 base_samel_comp_18 <- list.files(pattern = "hond") %>% lapply(
   fread, h = T, encoding = "Latin-1") %>% bind_rows()
 
-setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2018/honda trading/")
+base_samel_comp_18$VALORTOTAL <- NULL
+
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda-2/honda/2018/honda trading/")
 
 base_samel_trad_18 <- list.files(pattern = "hond") %>% lapply(
   fread, h = T, encoding = "Latin-1") %>% bind_rows()
 
-setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2018/moto honda/")
+base_samel_trad_18$VALORTOTAL <- NULL
+
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda-2/honda/2018/moto honda/")
 
 base_samel_motoh_18 <- list.files(pattern = "hond") %>% lapply(
   fread, h = T, encoding = "Latin-1") %>% bind_rows()
 
-setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2019/honda componente/")
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda-2/honda/2019/honda componente/")
 
 base_samel_comp_19 <- list.files(pattern = "hond") %>% lapply(
   fread, h = T, encoding = "Latin-1") %>% bind_rows()
 
-setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2019/honda trading/")
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda-2/honda/2019/honda trading/")
 
 base_samel_trad_19 <- list.files(pattern = "hond") %>% lapply(
   fread, h = T, encoding = "Latin-1") %>% bind_rows()
 
-setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/2019/moto honda/")
+base_samel_trad_19$COD_BENEFICIARIO <- as.character(base_samel_trad_19$COD_BENEFICIARIO)
+
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda-2/honda/2019/moto honda/")
 
 base_samel_motoh_19 <- list.files(pattern = "hond") %>% lapply(
   fread, h = T, encoding = "Latin-1") %>% bind_rows()
 
-setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda/")
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/honda 27-04/honda/")
+
+base_samel_honda_20 <- list.files(pattern = "HONDA") %>% lapply(
+  fread, h = T, encoding = "Latin-1") %>% bind_rows()
+
+base_samel <- bind_rows(base_samel_comp_18,base_samel_trad_18,base_samel_motoh_18,
+                        base_samel_comp_19,base_samel_trad_19,base_samel_motoh_19,
+                        base_samel_honda_20)
 
 #### REPLACE NUMERIC VALUES #####
 
@@ -112,6 +125,8 @@ base_samel$VALORFIM <- base_samel$VALOR*base_samel$QTDE
 base_samel %>% filter(DUPLICADOS == 
                         "TRUE") %>% group_by(.) %>% summarise(sum(VALORFIM,na.rm = T))
 
+fwrite(base_samel, file = "D:/Users/sb046971/Documents/base_samel.csv", sep = "|", dec = ",")
+
 #### ANALYSIS IN DATA ####
 
 base_samel$diaEvxPg <- difftime(base_samel$DATA,
@@ -144,6 +159,9 @@ fwrite(base_samel, file = "D:/Users/sb046971/Documents/base_samel.txt",
        sep = "|", dec = ",")
 
 samel_sd <- base_samel %>% filter(DUPLICADOS == "FALSE")
+
+#### analysis in data ####
+
 
 analysis1 <- samel_sd %>% group_by(TITULAR,PRESTADOR) %>% summarise(
   med_dias = mean(diaEvxPg),
@@ -218,3 +236,54 @@ ggplot(analysis10,aes(diaEvxPg,VALORFIM)) +
         axis.text.x=element_text(colour="black", size = 9),
         axis.text.y=element_text(colour="black", size = 9)) +
   geom_vline(xintercept = 365, size = 1, colour = "#FF3721", linetype = "dashed")
+
+
+#### new bases ####
+
+require(readxl)
+
+setwd("D:/Users/sb046971/Documents/Sinistro Samel/")
+
+mt.mar <- read_excel("Honda - mar 20.xlsx", sheet = 1)
+hc.mar <- read_excel("Honda - mar 20.xlsx", sheet = 2)
+ht.mar <- read_excel("Honda - mar 20.xlsx", sheet = 3)
+mt.abr <- read_excel("Moto Honda - abr 20.xlsx", sheet = 1)
+hc.abr <- read_excel("Moto Honda - abr 20.xlsx", sheet = 2)
+ht.abr <- read_excel("Moto Honda - abr 20.xlsx", sheet = 3)
+mt.mai <- read_excel("Moto Honda - mai 20.xlsx", sheet = 1)
+hc.mai <- read_excel("Moto Honda - mai 20.xlsx", sheet = 2)
+ht.mai <- read_excel("Moto Honda - mai 20.xlsx", sheet = 3)
+mt.jun <- read_excel("Moto Honda - jun 20.xlsx", sheet = 1)
+hc.jun <- read_excel("Moto Honda - jun 20.xlsx", sheet = 2)
+ht.jun <- read_excel("Moto Honda - jun 20.xlsx", sheet = 3)
+mt.jul <- read_excel("Moto Honda - jul 20.xlsx", sheet = 1)
+hc.jul <- read_excel("Moto Honda - jul 20.xlsx", sheet = 2)
+ht.jul <- read_excel("Moto Honda - jul 20.xlsx", sheet = 3)
+
+mt.mar <- head(mt.mar, -2)
+hc.mar <- head(hc.mar, -2)
+ht.mar <- head(ht.mar, -2)
+mt.abr <- head(mt.abr, -2)
+hc.abr <- head(hc.abr, -2)
+ht.abr <- head(ht.abr, -2)
+mt.mai <- head(mt.mai, -2)
+hc.mai <- head(hc.mai, -2)
+ht.mai <- head(ht.mai, -2)
+mt.jun <- head(mt.jun, -2)
+hc.jun <- head(hc.jun, -2)
+ht.jun <- head(ht.jun, -2)
+mt.jul <- head(mt.jul, -2)
+hc.jul <- head(hc.jul, -2)
+ht.jul <- head(ht.jul, -2)
+
+base.samel.last <- bind_rows(mt.abr,mt.jul,mt.jun,mt.mai,
+                             mt.mar,hc.abr,hc.jul,hc.jun,
+                             hc.mai,hc.mar,ht.abr,ht.jul,
+                             ht.jun,ht.mai,ht.mar)
+
+base.samel.last$DUPLICADOS <- duplicated(base.samel.last, na.rm = T)
+
+base.samel.last %>% filter(DUPLICADOS == 
+                        "TRUE") %>% group_by(.) %>% summarise(sum(`VALOR TOTAL`,na.rm = T))
+
+fwrite(base.samel.last, file = "D:/Users/sb046971/Documents/base_samel_last.csv", sep = "|", dec = ",")

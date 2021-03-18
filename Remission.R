@@ -306,6 +306,143 @@ dynamic <- bind_rows(dynamics,dynamics2)
 
 dynamic %>% group_by(.) %>% summarise(vlr_remissao,vlr_total)
 
+####### 2020 #######
+
+fat.tec03 <- readr:: read_fwf(
+  file ="Z:/1.Saúde Assistencial/1.Medicina/BRADESCO/5.Projetos/Fatura Técnica/2020/03.2020/FM071015_D200211.TXT",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("TIPO DO REGISTRO" = col_integer(),
+                   "NUMERO DA SUBFATURA" = col_integer(),
+                   "NUMERO DO CERTIFICADO" = col_integer(),
+                   "COMPLEMENTO DO CERTIFICADO" = col_integer(),
+                   "NOME SEGURADO/DEPENDENTE" = col_character(),
+                   "INDIC. SUBF. ANTER/ATUAL" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "CODIGO DO SEXO" = col_integer(),
+                   "ESTADO CIVIL" = col_integer(),
+                   "COD. GRAU PARENT.DEP." = col_integer(),
+                   "CODIGO DO PLANO" = col_character(),
+                   "DATA INICIO VIGENCIA" = col_character(),
+                   "TIPO DE LANÇAMENTO" = col_character(),
+                   "DATA DE LANCAMENTO" = col_character(),
+                   "VALOR DO LANCAMENTO" = col_integer(),
+                   "PARTE DO SEGURADO" = col_integer(),
+                   "CODIGO DO LANCAMENTO" = col_character(),
+                   "CARGO / OCUPACAO" = col_character(),
+                   "Matrícula" = col_character(),
+                   "FILLER" = col_character())) %>% filter(
+                     (`TIPO DO REGISTRO` == 3))
+
+fat.tec03$`VALOR DO LANCAMENTO` <- fat.tec03$`VALOR DO LANCAMENTO`/100
+
+fat.tec03$`VALOR DO LANCAMENTO` <- ifelse(
+  fat.tec03$`CODIGO DO LANCAMENTO` >49,
+  fat.tec03$`VALOR DO LANCAMENTO`*(-1),
+  fat.tec03$`VALOR DO LANCAMENTO`)
+
+fat.tec03 <- fat.tec03 %>% group_by(
+  `TIPO DO REGISTRO`,`NUMERO DA SUBFATURA`,`NUMERO DO CERTIFICADO`,
+  `COMPLEMENTO DO CERTIFICADO`,`NOME SEGURADO/DEPENDENTE`,`CODIGO DO SEXO`,
+  `ESTADO CIVIL`,`COD. GRAU PARENT.DEP.`,`CODIGO DO PLANO`,
+  `DATA INICIO VIGENCIA`,`TIPO DE LANÇAMENTO`,`PARTE DO SEGURADO`,
+  `CARGO / OCUPACAO`,Matrícula) %>% summarise(Valor = sum(
+    `VALOR DO LANCAMENTO`))
+
+fat.tec03$Matrícula <- as.numeric(fat.tec03$Matrícula)
+
+fat.tec03$mes <- "03/2020"
+
+fat.tec02 <- readr:: read_fwf(
+  file ="Z:/1.Saúde Assistencial/1.Medicina/BRADESCO/5.Projetos/Fatura Técnica/2020/02.2020/FM02071015.TXT",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("TIPO DO REGISTRO" = col_integer(),
+                   "NUMERO DA SUBFATURA" = col_integer(),
+                   "NUMERO DO CERTIFICADO" = col_integer(),
+                   "COMPLEMENTO DO CERTIFICADO" = col_integer(),
+                   "NOME SEGURADO/DEPENDENTE" = col_character(),
+                   "INDIC. SUBF. ANTER/ATUAL" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "CODIGO DO SEXO" = col_integer(),
+                   "ESTADO CIVIL" = col_integer(),
+                   "COD. GRAU PARENT.DEP." = col_integer(),
+                   "CODIGO DO PLANO" = col_character(),
+                   "DATA INICIO VIGENCIA" = col_character(),
+                   "TIPO DE LANÇAMENTO" = col_character(),
+                   "DATA DE LANCAMENTO" = col_character(),
+                   "VALOR DO LANCAMENTO" = col_integer(),
+                   "PARTE DO SEGURADO" = col_integer(),
+                   "CODIGO DO LANCAMENTO" = col_character(),
+                   "CARGO / OCUPACAO" = col_character(),
+                   "Matrícula" = col_character(),
+                   "FILLER" = col_character())) %>% filter(
+                     (`TIPO DO REGISTRO` == 3))
+
+fat.tec02$`VALOR DO LANCAMENTO` <- fat.tec02$`VALOR DO LANCAMENTO`/100
+
+fat.tec02$`VALOR DO LANCAMENTO` <- ifelse(
+  fat.tec02$`CODIGO DO LANCAMENTO` >49,
+  fat.tec02$`VALOR DO LANCAMENTO`*(-1),
+  fat.tec02$`VALOR DO LANCAMENTO`)
+
+fat.tec02 <- fat.tec02 %>% group_by(
+  `TIPO DO REGISTRO`,`NUMERO DA SUBFATURA`,`NUMERO DO CERTIFICADO`,
+  `COMPLEMENTO DO CERTIFICADO`,`NOME SEGURADO/DEPENDENTE`,`CODIGO DO SEXO`,
+  `ESTADO CIVIL`,`COD. GRAU PARENT.DEP.`,`CODIGO DO PLANO`,
+  `DATA INICIO VIGENCIA`,`TIPO DE LANÇAMENTO`,`PARTE DO SEGURADO`,
+  `CARGO / OCUPACAO`,Matrícula) %>% summarise(Valor = sum(
+    `VALOR DO LANCAMENTO`))
+
+fat.tec02$Matrícula <- as.numeric(fat.tec02$Matrícula)
+
+fat.tec02$mes <- "02/2020"
+
+fat.tec01 <- readr:: read_fwf(
+  file ="Z:/1.Saúde Assistencial/1.Medicina/BRADESCO/5.Projetos/Fatura Técnica/2020/01.2020/FM071015_D191211.TXT",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("TIPO DO REGISTRO" = col_integer(),
+                   "NUMERO DA SUBFATURA" = col_integer(),
+                   "NUMERO DO CERTIFICADO" = col_integer(),
+                   "COMPLEMENTO DO CERTIFICADO" = col_integer(),
+                   "NOME SEGURADO/DEPENDENTE" = col_character(),
+                   "INDIC. SUBF. ANTER/ATUAL" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "CODIGO DO SEXO" = col_integer(),
+                   "ESTADO CIVIL" = col_integer(),
+                   "COD. GRAU PARENT.DEP." = col_integer(),
+                   "CODIGO DO PLANO" = col_character(),
+                   "DATA INICIO VIGENCIA" = col_character(),
+                   "TIPO DE LANÇAMENTO" = col_character(),
+                   "DATA DE LANCAMENTO" = col_character(),
+                   "VALOR DO LANCAMENTO" = col_integer(),
+                   "PARTE DO SEGURADO" = col_integer(),
+                   "CODIGO DO LANCAMENTO" = col_character(),
+                   "CARGO / OCUPACAO" = col_character(),
+                   "Matrícula" = col_character(),
+                   "FILLER" = col_character())) %>% filter(
+                     (`TIPO DO REGISTRO` == 3))
+
+fat.tec01$`VALOR DO LANCAMENTO` <- fat.tec01$`VALOR DO LANCAMENTO`/100
+
+fat.tec01$`VALOR DO LANCAMENTO` <- ifelse(
+  fat.tec01$`CODIGO DO LANCAMENTO` >49,
+  fat.tec01$`VALOR DO LANCAMENTO`*(-1),
+  fat.tec01$`VALOR DO LANCAMENTO`)
+
+fat.tec01 <- fat.tec01 %>% group_by(
+  `TIPO DO REGISTRO`,`NUMERO DA SUBFATURA`,`NUMERO DO CERTIFICADO`,
+  `COMPLEMENTO DO CERTIFICADO`,`NOME SEGURADO/DEPENDENTE`,`CODIGO DO SEXO`,
+  `ESTADO CIVIL`,`COD. GRAU PARENT.DEP.`,`CODIGO DO PLANO`,
+  `DATA INICIO VIGENCIA`,`TIPO DE LANÇAMENTO`,`PARTE DO SEGURADO`,
+  `CARGO / OCUPACAO`,Matrícula) %>% summarise(Valor = sum(
+    `VALOR DO LANCAMENTO`))
+
+fat.tec01$Matrícula <- as.numeric(fat.tec01$Matrícula)
+
+fat.tec01$mes <- "01/2020"
+
+fat.tec <- bind_rows(fat.tec01,fat.tec02,fat.tec03,fat.tec04,fat.tec05,fat.tec06,fat.tec07,
+                     fat.tec08,fat.tec09,fat.tec10,fat.tec11)
+
 #### per month claim remission ####
 
 x <- bradesco_consolidado %>% filter(

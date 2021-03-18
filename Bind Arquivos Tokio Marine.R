@@ -1,9 +1,11 @@
+#### PACKAGES ####
+
 require(dplyr)
 require(data.table)
 
-############# BIND POLLYANA ARQUIVOS DE SEGURO DE VIDA ######
+############# BIND ARQUIVOS DE SEGURO DE VIDA ######
 
-setwd("D:/Users/sb046971/Documents/Tokio Bind/TÁBUA BIOMÉTRICA 022020/")
+setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Tokio Bind/Tábua biométrica 032021/")
 
 base <- list.files(pattern = ".csv") %>%
   lapply(fread,dec = ",",colClasses = c("ESTITULANTE" = "character",
@@ -23,7 +25,7 @@ base <- list.files(pattern = ".csv") %>%
                   "PREMIO DESP MED E ODONTO","DATA_ADMISSAO","DATA_INI_VIGENCIA",
                   "SEXO","ESTADO_CIVIL"))  %>% bind_rows
 
-fwrite(base,file = "d:/Users/sb046971/Documents/Tokio Bind/TÁBUA BIOMÉTRICA 022020/BASEFINAL.CSV",
+fwrite(base,file = "d:/Users/sb046971/OneDrive - Honda/Documentos/Tokio Bind/TÁBUA BIOMÉTRICA 032021/BASEFINAL.CSV",
        sep = "|", dec = ",")
 
 base$DATA_ADMISSAO <- as.Date(base$DATA_ADMISSAO, "%Y%m%d")
@@ -51,6 +53,7 @@ plan13 <- base %>% filter(ESTITULANTE == "11477" & SUB_ESTITULANTE == "0034")
 plan14 <- base %>% filter(ESTITULANTE == "11477" & SUB_ESTITULANTE == "0037")
 plan15 <- base %>% filter(ESTITULANTE == "11477" & SUB_ESTITULANTE == "0038")
 plan16 <- base %>% filter(ESTITULANTE == "11477" & SUB_ESTITULANTE == "0039")
+plan31 <- base %>% filter(ESTITULANTE == "11477" & SUB_ESTITULANTE == "0044")
 plan17 <- base %>% filter(ESTITULANTE == "11477" & SUB_ESTITULANTE == "0045")
 plan18 <- base %>% filter(ESTITULANTE == "11477" & SUB_ESTITULANTE == "0046")
 plan19 <- base %>% filter(ESTITULANTE == "11477" & SUB_ESTITULANTE == "0047")
@@ -66,7 +69,7 @@ plan28 <- base %>% filter(ESTITULANTE == "15336" & SUB_ESTITULANTE == "0003")
 plan29 <- base %>% filter(ESTITULANTE == "15336" & SUB_ESTITULANTE == "0006")
 plan30 <- base %>% filter(ESTITULANTE == "15346" & SUB_ESTITULANTE == "0000")
 
-# install.packages("D:/Users/sb046971/Documents/rJava_0.9-11.zip", repos = NULL)
+# install.packages("D:/Users/sb046971/Downloads/rJava_0.9-11.zip", repos = NULL)
 # 
 # Sys.setenv(JAVA_HOME='C:\\Arquivos de Programas\\Java\\jre1.8.0_201')
 
@@ -99,8 +102,8 @@ write.xlsx(plan4, file = "Base-Segmentada.xlsx",
 gc()
 gc()
 
-# write.xlsx(plan5, file = "Base-Segmentada.xlsx",
-#            sheetName="11477 0004", append=TRUE, row.names = F)
+write.xlsx(plan31, file = "Base-Segmentada.xlsx",
+           sheetName="11477 0044", append=TRUE, row.names = F)
 
 gc()
 gc()
@@ -251,3 +254,4 @@ gc()
 
 gc()
 gc()
+

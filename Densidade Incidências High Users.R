@@ -17,14 +17,14 @@ assign("last.warning", NULL, envir = baseenv())
 #### CHANGE CUT CENTURY FOR AGE // BECAUSE THE DEFAULT IS 1970 - 2070 ####
 
 options(chron.year.expand = 
-          function (y, cut.off = 21, century = c(1900, 2000), ...) {
+          function (y, cut.off = 22, century = c(1900, 2000), ...) {
             chron:::year.expand(y, cut.off = cut.off, century = century, ...)
           }
 )
 
 #### ONLY HIGH USERS BRADESCO - DATA ####
 
-bradesco_highusers <- fread("d:/Users/sb046971/Documents/bradesco_highusers.csv", 
+bradesco_highusers <- fread("D:/Users/sb046971/OneDrive - Honda/Documentos/bradesco_highusers.csv", 
                             dec = ",")
 
 #### ANALYSIS DATA HIGH USERS ####
@@ -55,11 +55,11 @@ dynamics4 <- dynamics3 %>% filter(
 
 #### SEND ANALYSIS TO EXCEL ####
 
-fwrite(dynamics4, file = "D:/Users/sb046971/Documents/Dinamica4.csv", sep = "|",
+fwrite(dynamics4, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Dinamica4.csv", sep = "|",
        dec = ",")
-fwrite(dynamics, file = "D:/Users/sb046971/Documents/Dinamica1.csv", sep = "|", 
+fwrite(dynamics, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Dinamica1.csv", sep = "|", 
        dec = ",")
-fwrite(dynamics2, file = "D:/Users/sb046971/Documents/Dinamica2.csv", sep = "|",
+fwrite(dynamics2, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Dinamica2.csv", sep = "|",
        dec = ",")
 
 #### PLOT GRAPHS HIGH USERS 
@@ -92,7 +92,7 @@ ggplot(dynamics, aes(x = med_dias)) +
 ### COMPLETE DATA ###
 #### CHANGE DIRECTORY ####
 
-setwd("D:/Users/sb046971/Documents/Sinistro Bradesco/")
+setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/")
 
 # lapply doesn't function to read_fwf
 # teste <- list.files(pattern = ".txt") %>% 
@@ -124,7 +124,7 @@ names = c("TIPO DE REGISTRO","NÚMERO DA SUBFATURA","NOME DA SUBFATURA",
 ### mes 05/2018
 
 mes0518 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1805_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1805_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
     col_types = cols("VALOR PAGO" = col_integer(),
                      "VALOR DO SINISTRO" = col_integer(),
@@ -148,7 +148,7 @@ mes0518$`VALOR DE INSS OU ISS ($)` <- mes0518$`VALOR DE INSS OU ISS ($)`/100
 #mes 06/2018
 
 mes0618 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1806_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1806_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -172,7 +172,7 @@ mes0618$`VALOR DE INSS OU ISS ($)` <- mes0618$`VALOR DE INSS OU ISS ($)`/100
 #mes 07/2018
 
 mes0718 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1807_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1807_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -196,7 +196,7 @@ mes0718$`VALOR DE INSS OU ISS ($)` <- mes0718$`VALOR DE INSS OU ISS ($)`/100
 #mes 08/2018
 
 mes0818 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1808_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1808_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -220,7 +220,7 @@ mes0818$`VALOR DE INSS OU ISS ($)` <- mes0818$`VALOR DE INSS OU ISS ($)`/100
 #mes 09/2018
 
 mes0918 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1809_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1809_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -244,7 +244,7 @@ mes0918$`VALOR DE INSS OU ISS ($)` <- mes0918$`VALOR DE INSS OU ISS ($)`/100
 #mes 10/2018
 
 mes1018 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1810_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1810_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -268,7 +268,7 @@ mes1018$`VALOR DE INSS OU ISS ($)` <- mes1018$`VALOR DE INSS OU ISS ($)`/100
 #mes 11/2018
 
 mes1118 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1811_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1811_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -292,7 +292,7 @@ mes1118$`VALOR DE INSS OU ISS ($)` <- mes1118$`VALOR DE INSS OU ISS ($)`/100
 #mes 12/2018
 
 mes1218 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1812_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1812_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -316,7 +316,7 @@ mes1218$`VALOR DE INSS OU ISS ($)` <- mes1218$`VALOR DE INSS OU ISS ($)`/100
 #mes 01/2019
 
 mes0119 <- readr:: read_fwf(
-file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1901_D071015.txt",
+file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1901_D071015.txt",
 fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
 col_types = cols("VALOR PAGO" = col_integer(),
                  "VALOR DO SINISTRO" = col_integer(),
@@ -340,7 +340,7 @@ mes0119$`VALOR DE INSS OU ISS ($)` <- mes0119$`VALOR DE INSS OU ISS ($)`/100
 #mes 02/2019
 
 mes0219 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1902_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1902_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -364,7 +364,7 @@ mes0219$`VALOR DE INSS OU ISS ($)` <- mes0219$`VALOR DE INSS OU ISS ($)`/100
 #mes 03/2019
 
 mes0319 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1903_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1903_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -388,7 +388,7 @@ mes0319$`VALOR DE INSS OU ISS ($)` <- mes0319$`VALOR DE INSS OU ISS ($)`/100
 #mes 04/2019
 
 mes0419 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1904_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1904_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -412,7 +412,7 @@ mes0419$`VALOR DE INSS OU ISS ($)` <- mes0419$`VALOR DE INSS OU ISS ($)`/100
 #mes 05/2019
 
 mes0519 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1905_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1905_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -436,7 +436,7 @@ mes0519$`VALOR DE INSS OU ISS ($)` <- mes0519$`VALOR DE INSS OU ISS ($)`/100
 #mes 06/2019
 
 mes0619 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1906_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1906_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -460,7 +460,7 @@ mes0619$`VALOR DE INSS OU ISS ($)` <- mes0619$`VALOR DE INSS OU ISS ($)`/100
 #mes 07/2019
 
 mes0719 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1907_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1907_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -484,7 +484,7 @@ mes0719$`VALOR DE INSS OU ISS ($)` <- mes0719$`VALOR DE INSS OU ISS ($)`/100
 #mes 08/2019
 
 mes0819 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1908_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1908_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -508,7 +508,7 @@ mes0819$`VALOR DE INSS OU ISS ($)` <- mes0819$`VALOR DE INSS OU ISS ($)`/100
 #mes 09/2019
 
 mes0919 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1909_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1909_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -532,7 +532,7 @@ mes0919$`VALOR DE INSS OU ISS ($)` <- mes0919$`VALOR DE INSS OU ISS ($)`/100
 #mes 10/2019
 
 mes1019 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1910_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1910_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -556,7 +556,7 @@ mes1019$`VALOR DE INSS OU ISS ($)` <- mes1019$`VALOR DE INSS OU ISS ($)`/100
 #mes 11/2019
 
 mes1119 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1911_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1911_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -580,7 +580,7 @@ mes1119$`VALOR DE INSS OU ISS ($)` <- mes1119$`VALOR DE INSS OU ISS ($)`/100
 #mes 12/2019
 
 mes1219 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN1912_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN1912_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -604,7 +604,7 @@ mes1219$`VALOR DE INSS OU ISS ($)` <- mes1219$`VALOR DE INSS OU ISS ($)`/100
 #mes 01/2020
 
 mes0120 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN2001_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2001_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -628,7 +628,7 @@ mes0120$`VALOR DE INSS OU ISS ($)` <- mes0120$`VALOR DE INSS OU ISS ($)`/100
 #mes 02/2020
 
 mes0220 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Bradesco/SN2002_D071015.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2002_D071015.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("VALOR PAGO" = col_integer(),
                    "VALOR DO SINISTRO" = col_integer(),
@@ -649,13 +649,302 @@ mes0220$`VALOR DO RECIBO` <- mes0220$`VALOR DO RECIBO`/100
 mes0220$`VALOR DO SINISTRO` <- mes0220$`VALOR DO SINISTRO`/100
 mes0220$`VALOR DE INSS OU ISS ($)` <- mes0220$`VALOR DE INSS OU ISS ($)`/100
 
+#mes 03/2020
+
+mes0320 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2003_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0320$"VALOR PAGO" <- mes0320$"VALOR PAGO"/100
+mes0320$`VALOR DO RECIBO` <- mes0320$`VALOR DO RECIBO`/100
+mes0320$`VALOR DO SINISTRO` <- mes0320$`VALOR DO SINISTRO`/100
+mes0320$`VALOR DE INSS OU ISS ($)` <- mes0320$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 04/2020
+
+mes0420 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2004_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0420$"VALOR PAGO" <- mes0420$"VALOR PAGO"/100
+mes0420$`VALOR DO RECIBO` <- mes0420$`VALOR DO RECIBO`/100
+mes0420$`VALOR DO SINISTRO` <- mes0420$`VALOR DO SINISTRO`/100
+mes0420$`VALOR DE INSS OU ISS ($)` <- mes0420$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 05/2020
+
+mes0520 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2005_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0520$"VALOR PAGO" <- mes0520$"VALOR PAGO"/100
+mes0520$`VALOR DO RECIBO` <- mes0520$`VALOR DO RECIBO`/100
+mes0520$`VALOR DO SINISTRO` <- mes0520$`VALOR DO SINISTRO`/100
+mes0520$`VALOR DE INSS OU ISS ($)` <- mes0520$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 06/2020
+
+mes0620 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2006_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0620$"VALOR PAGO" <- mes0620$"VALOR PAGO"/100
+mes0620$`VALOR DO RECIBO` <- mes0620$`VALOR DO RECIBO`/100
+mes0620$`VALOR DO SINISTRO` <- mes0620$`VALOR DO SINISTRO`/100
+mes0620$`VALOR DE INSS OU ISS ($)` <- mes0620$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 07/2020
+
+mes0720 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2007_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0720$"VALOR PAGO" <- mes0720$"VALOR PAGO"/100
+mes0720$`VALOR DO RECIBO` <- mes0720$`VALOR DO RECIBO`/100
+mes0720$`VALOR DO SINISTRO` <- mes0720$`VALOR DO SINISTRO`/100
+mes0720$`VALOR DE INSS OU ISS ($)` <- mes0720$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 08/2020
+
+mes0820 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2008_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0820$"VALOR PAGO" <- mes0820$"VALOR PAGO"/100
+mes0820$`VALOR DO RECIBO` <- mes0820$`VALOR DO RECIBO`/100
+mes0820$`VALOR DO SINISTRO` <- mes0820$`VALOR DO SINISTRO`/100
+mes0820$`VALOR DE INSS OU ISS ($)` <- mes0820$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 09/2020
+
+mes0920 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2009_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0920$"VALOR PAGO" <- mes0920$"VALOR PAGO"/100
+mes0920$`VALOR DO RECIBO` <- mes0920$`VALOR DO RECIBO`/100
+mes0920$`VALOR DO SINISTRO` <- mes0920$`VALOR DO SINISTRO`/100
+mes0920$`VALOR DE INSS OU ISS ($)` <- mes0920$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 10/2020
+
+mes1020 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2010_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes1020$"VALOR PAGO" <- mes1020$"VALOR PAGO"/100
+mes1020$`VALOR DO RECIBO` <- mes1020$`VALOR DO RECIBO`/100
+mes1020$`VALOR DO SINISTRO` <- mes1020$`VALOR DO SINISTRO`/100
+mes1020$`VALOR DE INSS OU ISS ($)` <- mes1020$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 11/2020
+
+mes1120 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2011_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes1120$"VALOR PAGO" <- mes1120$"VALOR PAGO"/100
+mes1120$`VALOR DO RECIBO` <- mes1120$`VALOR DO RECIBO`/100
+mes1120$`VALOR DO SINISTRO` <- mes1120$`VALOR DO SINISTRO`/100
+mes1120$`VALOR DE INSS OU ISS ($)` <- mes1120$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 12/2020
+
+mes1220 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2012_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes1220$"VALOR PAGO" <- mes1220$"VALOR PAGO"/100
+mes1220$`VALOR DO RECIBO` <- mes1220$`VALOR DO RECIBO`/100
+mes1220$`VALOR DO SINISTRO` <- mes1220$`VALOR DO SINISTRO`/100
+mes1220$`VALOR DE INSS OU ISS ($)` <- mes1220$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 01/2021
+
+mes0121 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2101_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0121$"VALOR PAGO" <- mes0121$"VALOR PAGO"/100
+mes0121$`VALOR DO RECIBO` <- mes0121$`VALOR DO RECIBO`/100
+mes0121$`VALOR DO SINISTRO` <- mes0121$`VALOR DO SINISTRO`/100
+mes0121$`VALOR DE INSS OU ISS ($)` <- mes0121$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 02/2021
+
+mes0221 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2102_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0221$"VALOR PAGO" <- mes0221$"VALOR PAGO"/100
+mes0221$`VALOR DO RECIBO` <- mes0221$`VALOR DO RECIBO`/100
+mes0221$`VALOR DO SINISTRO` <- mes0221$`VALOR DO SINISTRO`/100
+mes0221$`VALOR DE INSS OU ISS ($)` <- mes0221$`VALOR DE INSS OU ISS ($)`/100
 
 #### BIND DATABASE ALL MONTHS ####
 
 bradesco_consolidado <- bind_rows(mes0518,mes0618,mes0718,mes0818,mes0918,mes1018,
                                   mes1118,mes1218,mes0119,mes0219,mes0319,mes0419,
                                   mes0519,mes0619,mes0719,mes0819,mes0919,mes1019,
-                                  mes1119,mes1219,mes0120,mes0220)
+                                  mes1119,mes1219,mes0120,mes0220,mes0320,mes0420,
+                                  mes0520,mes0620,mes0720,mes0820,mes0920,mes1020,
+                                  mes1120,mes1220,mes0121,mes0221)
 
 #### TREATMENT DATABASE FACTORS ####
 
@@ -686,7 +975,7 @@ bradesco_consolidado$`GRAU DE PARENTESCO` <- factor(
 bradesco_consolidado$newtype <- paste(bradesco_consolidado$`TIPO DE EVENTO`,
                                       bradesco_consolidado$`CÓDIGO DO PROCEDIMENTO`)
 
-proced <- fread(file = "D:/Users/sb046971/Documents/Sinistro Bradesco/Tabela Procedimentos - ORG.txt",
+proced <- fread(file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/Tabela Procedimentos - ORG.txt",
                 colClasses = c("CÓDIGO DO PROCEDIMENTO" = "character"))
 
 bradesco_consolidado <- left_join(bradesco_consolidado,proced,
@@ -810,7 +1099,7 @@ bradesco_consolidado$COMPETENCIA2 <- substr(bradesco_consolidado$COMPETENCIA2,
 bradesco_consolidado$DUPLICADOS <- duplicated(bradesco_consolidado)
 
 fwrite(bradesco_consolidado, 
-       file = "d:/Users/sb046971/Documents/Bradesco - Consolidado.csv", 
+       file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Bradesco - Consolidado.csv", 
        sep = "|", dec = ",")
 
 bradesco_sd <- bradesco_consolidado %>% filter(DUPLICADOS == "FALSE") %>% select(
@@ -822,7 +1111,7 @@ bradesco_sd <- bradesco_consolidado %>% filter(DUPLICADOS == "FALSE") %>% select
 
 soment_dupli <- bradesco_consolidado %>% filter(DUPLICADOS == "TRUE")
 
-conta.hospit <- fread("D:/Users/sb046971/Documents/ContaHosp.csv",dec = ",")
+conta.hospit <- fread("D:/Users/sb046971/OneDrive - Honda/Documentos/ContaHosp.csv",dec = ",")
 
 names(conta.hospit)[names(
   conta.hospit) == "Senha Autorização"] <- "NÚMERO DO DOCUMENTO"
@@ -854,44 +1143,44 @@ analysis4 <- bradesco_consolidado %>% filter(
   DUPLICADOS == "TRUE") %>% group_by(`DATA DO PAGAMENTO`) %>% summarise(
     sinistro = sum(`VALOR DO SINISTRO`))
 
-bradesco_sd$diaEvxPg <- difftime(bradesco_sd$`DATA DO PAGAMENTO`,
-                               bradesco_sd$`DATA DO EVENTO(Y2K)`,units = "days")
+bradesco_consolidado$diaEvxPg <- difftime(bradesco_consolidado$`DATA DO PAGAMENTO`,
+                                          bradesco_consolidado$`DATA DO EVENTO(Y2K)`,units = "days")
 
-bradesco_sd$diaEvxPg <- as.numeric(bradesco_sd$diaEvxPg)
+bradesco_consolidado$diaEvxPg <- as.numeric(bradesco_consolidado$diaEvxPg)
 
-bradesco_sd$mesEvxPg <-floor((as.double(bradesco_sd$diaEvxPg)/365)*12)
+bradesco_consolidado$mesEvxPg <-floor((as.double(bradesco_consolidado$diaEvxPg)/365)*12)
 
-bradesco_sd$flag12meses <- if_else(bradesco_sd$mesEvxPg > 11,"+","0")
+bradesco_consolidado$flag12meses <- if_else(bradesco_consolidado$mesEvxPg > 11,"+","0")
 
-bradesco_sd$flag4meses <- if_else(bradesco_sd$diaEvxPg > 120,"+","0")
+bradesco_consolidado$flag4meses <- if_else(bradesco_consolidado$diaEvxPg > 120,"+","0")
 
-bradesco_sd$flag6meses <- if_else(bradesco_sd$diaEvxPg > 180,"+","0")
+bradesco_consolidado$flag6meses <- if_else(bradesco_consolidado$diaEvxPg > 180,"+","0")
 
-table(bradesco_sd$flag12meses)
+table(bradesco_consolidado$flag12meses)
 
-table(bradesco_sd$flag4meses)
+table(bradesco_consolidado$flag4meses)
 
-table(bradesco_sd$flag6meses)
+table(bradesco_consolidado$flag6meses)
 
-analysis5 <- bradesco_sd %>% filter(flag12meses == "+") %>% 
+analysis5 <- bradesco_consolidado %>% filter(flag12meses == "+") %>% 
   group_by(.) %>% summarise(sum(`VALOR DO SINISTRO`))
 
-analysis6 <- bradesco_sd %>% filter(flag4meses == "+") %>% 
+analysis6 <- bradesco_consolidado %>% filter(flag4meses == "+") %>% 
   group_by(.) %>% summarise(sum(`VALOR DO SINISTRO`))
 
-analysis7 <- bradesco_sd %>% filter(flag6meses == "+") %>% 
+analysis7 <- bradesco_consolidado %>% filter(flag6meses == "+") %>% 
   group_by(.) %>% summarise(sum(`VALOR DO SINISTRO`))
 
-analysis8 <- bradesco_sd %>% group_by(`NÚMERO DO CERTIFICADO`,
+analysis8 <- bradesco_consolidado %>% group_by(`NÚMERO DO CERTIFICADO`,
                                     `PRESTADOR EXECUTANTE`) %>% summarise(
                                       med_dias = mean(diaEvxPg),
                                       med_meses = mean(mesEvxPg),
                                       valor_sinistro = sum(`VALOR DO SINISTRO`))
 
-analysis9 <- bradesco_sd %>% group_by(`PRESTADOR EXECUTANTE`,mesEvxPg) %>% summarise(
+analysis9 <- bradesco_consolidado %>% group_by(`PRESTADOR EXECUTANTE`,mesEvxPg) %>% summarise(
                                       valor_sinistro = sum(`VALOR DO SINISTRO`))
 
-analysis10 <- bradesco_sd %>% group_by(`PRESTADOR EXECUTANTE`) %>% summarise(
+analysis10 <- bradesco_consolidado %>% group_by(`PRESTADOR EXECUTANTE`) %>% summarise(
                                       med_dias = mean(diaEvxPg),
                                       med_meses = mean(mesEvxPg),
                                       valor_sinistro = sum(`VALOR DO SINISTRO`))
@@ -948,9 +1237,9 @@ analysis20 <- bradesco_consolidado %>% filter(ESPECIALIDADE == "99") %>% group_b
 
 analysis20 <- analysis20 %>% filter(`TIPO DE EVENTO` == "Consulta")
 
-fwrite(analysis20, file = "D:/Users/sb046971/Documents/Reemb.csv", sep = ";", dec = ",")
+fwrite(analysis20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Reemb.csv", sep = ";", dec = ",")
 
-fwrite(bradesco_sd, file = "D:/Users/sb046971/Documents/teste2.csv", sep = ";", dec = ",")
+fwrite(bradesco_sd, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/teste2.csv", sep = ";", dec = ",")
 
 #### GRAPH MEAN DAYS AND VALUES ####
 
@@ -1059,7 +1348,7 @@ ggplot(analysis18,aes(diaEvxPg,`VALOR PAGO`)) +
 
 #### GRAPH DAYS AND VALUES || ONLY BETWEEN DATES #### 
 
-exceed_between_dates <- fread("d:/Users/sb046971/Documents/Bases Testes/
+exceed_between_dates <- fread("D:/Users/sb046971/OneDrive - Honda/Documentos/Bases Testes/
                               Base_Entre_datas.csv", dec = ",")
 
 ggplot(exceed_between_dates,aes(diaEvxPg,`VALOR DO SINISTRO`)) + 
@@ -1086,17 +1375,17 @@ ggplot(exceed_between_dates,aes(diaEvxPg,`VALOR DO SINISTRO`)) +
 cost.p.person <- bradesco_sd %>% group_by(`NOME DO PACIENTE`) %>% summarise(
   valor = sum(`VALOR DO SINISTRO`))
 
-analysis21 <- bradesco_sd %>% filter(
+analysis21 <- bradesco_consolidado %>% filter(
   `CÓDIGO DO PROCEDIMENTO` == "10101039") %>% group_by(
     `NOME DO PACIENTE`) %>% summarise(qt_cons = sum(`QUANTIDADE PROCEDIMENTOS`),
                                       valor = sum(`VALOR DO SINISTRO`))
 
-analysis22 <- bradesco_sd %>% filter(
+analysis22 <- bradesco_consolidado %>% filter(
   `CÓDIGO DO PROCEDIMENTO` == "10101012") %>% group_by(
     `NOME DO PACIENTE`) %>% summarise(qt_cons = sum(`QUANTIDADE PROCEDIMENTOS`),
                                       valor = sum(`VALOR DO SINISTRO`))
 
-analysis23 <- bradesco_sd %>% filter(
+analysis23 <- bradesco_consolidado %>% filter(
   `CÓDIGO DO PROCEDIMENTO` == "10106146") %>% group_by(
     `NOME DO PACIENTE`) %>% summarise(qt_cons = sum(`QUANTIDADE PROCEDIMENTOS`),
                                       valor = sum(`VALOR DO SINISTRO`))
@@ -1104,7 +1393,7 @@ analysis23 <- bradesco_sd %>% filter(
 analysis24 <- bradesco_consolidado %>% filter(
   `NOME DO PACIENTE` == "MONICA OLIVEIRA SOUZA") 
 
-fwrite(analysis24, file = "d:/Users/sb046971/Documents/Utilizacao - Monica.csv", 
+fwrite(analysis24, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Utilizacao - Monica.csv", 
        sep = "|", dec = ",")
 
 analysis25 <- bradesco_sd %>% filter(is.na(
@@ -1115,14 +1404,14 @@ analysis26 <- bradesco_sd %>% filter(
   `CPF/CGC DO REFERENCIADO` == "00000000000000") %>% group_by(.) %>% summarise(
   valor = sum(`VALOR DO SINISTRO`))
 
-reembolsos <- bradesco_sd %>% filter(ESPECIALIDADE == "99")
+reembolsos <- bradesco_consolidado %>% filter(ESPECIALIDADE == "99")
 
-fwrite(reembolsos, file = "d:/Users/sb046971/Documents/Reembolsos - Base sinistro.csv",
+fwrite(reembolsos, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Reembolsos - Base sinistro.csv",
        sep = "|", dec = ",")
 
 detalhado <- bradesco_consolidado %>% filter(`NOME DO PACIENTE` == "JOAO KOYTY OJI WADA")
 
-fwrite(detalhado, file = "d:/Users/sb046971/Documents/Detalhado J.csv", 
+fwrite(detalhado, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Detalhado J.csv", 
        sep = ";", dec = ",")
 
 analysis27 <- bradesco_consolidado %>% group_by(COMPETENCIA,
@@ -1135,12 +1424,12 @@ analysis27 <- bradesco_consolidado %>% group_by(COMPETENCIA,
                                          valor_gasto = sum(
                                            `VALOR DO SINISTRO`))
 
-fwrite(analysis27, file = "D:/Users/sb046971/Documents/HighUsers_Bradesco.csv",
+fwrite(analysis27, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/HighUsers_Bradesco.csv",
        sep = ";", dec = ",")
 
 analysis28 <- bradesco_sd %>% filter(`NOME DO SEGURADO` == "GISELE SEGALA")
 
-fwrite(analysis28, file = "D:/Users/sb046971/Documents/lcap_G.csv",
+fwrite(analysis28, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_G.csv",
        sep = ";", dec = ",")
 
 graph <- bradesco_consolidado %>% group_by(COMPETENCIA,
@@ -1151,7 +1440,7 @@ require(tidyr)
 
 graph2 <- graph %>% spread(COMPETENCIA, valor)
 
-fwrite(graph2,file = "D:/Users/sb046971/Documents/Grafico-pdca-jan.csv", sep = ";", dec = ",")
+fwrite(graph2,file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Grafico-pdca-jan.csv", sep = ";", dec = ",")
 
 rank_proc <- bradesco_consolidado %>% filter(COMPETENCIA2 %in% c("07/2019", "08/2019", "09/2019",
                                                                 "10/2019", "11/2019", "12/2019")
@@ -1166,34 +1455,64 @@ rank_proc <- bradesco_consolidado %>% filter(COMPETENCIA2 %in% c("07/2019", "08/
          -`NÚMERO DO CERTIFICADO`,-`TIPO DE REGISTRO`,-`CÓDIGO DO REFERENCIADO`,
          -`CODIGO AUTORIZAÇÃO`,-`TIPO DA SUBFATURA`,-`TIPO DO REFERENCIADO`,-ESPECIALIDADE)
 
-fwrite(rank_proc, file = "D:/Users/sb046971/Documents/Ranking_proc.csv", dec = ",", sep = "|")
+fwrite(rank_proc, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Ranking_proc.csv", dec = ",", sep = "|")
 
 lcap_JTA <- bradesco_consolidado %>% filter(`NOME DO SEGURADO` == "JORGE TSUGUO ADATI")
 
-fwrite(lcap_JTA, file = "D:/Users/sb046971/Documents/lcap_JTA.csv", sep = "|", dec = ",")
+fwrite(lcap_JTA, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_JTA.csv", sep = "|", dec = ",")
 
 lcap_SBJ <- bradesco_consolidado %>% filter(`NOME DO SEGURADO` == "SERGIO BELLETTI JUNIOR")
 
-fwrite(lcap_SBJ, file = "D:/Users/sb046971/Documents/lcap_SBJ.csv", sep = "|", dec = ",")
+fwrite(lcap_SBJ, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_SBJ.csv", sep = "|", dec = ",")
 
 lcap_MRM <- bradesco_consolidado %>% filter(`NOME DO SEGURADO` == "MATEUS RIOITI MORITA")
 
-fwrite(lcap_MRM, file = "D:/Users/sb046971/Documents/lcap_MRM.csv", sep = "|", dec = ",")
+fwrite(lcap_MRM, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_MRM.csv", sep = "|", dec = ",")
 
 lcap_ENV <- bradesco_consolidado %>% filter(`NOME DO SEGURADO` == "EDUARDO DE NOVAIS VITORINO")
 
-fwrite(lcap_ENV, file = "D:/Users/sb046971/Documents/lcap_ENV.csv", sep = "|", dec = ",")
+fwrite(lcap_ENV, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_ENV.csv", sep = "|", dec = ",")
+
+lcap_MSTK <- bradesco_consolidado %>% filter(`NOME DO PACIENTE` == "MARCIA SETSUKO TANIGAWA KOGA")
+
+fwrite(lcap_MSTK, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_MSTK.csv", sep = "|", dec = ",")
+
+lcap_SMRZ <- bradesco_consolidado %>% filter(`NOME DO PACIENTE` == "SANDRA MARA RODRIGUES ZAMPIERI")
+
+fwrite(lcap_SMRZ, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_SMRZ.csv", sep = "|", dec = ",")
+
+lcap_MNGS <- bradesco_consolidado %>% filter(`NOME DO SEGURADO` == "MARIA NUBIA GOMES DE SOUZA")
+
+fwrite(lcap_MNGS, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_MNGS.csv", sep = "|", dec = ",")
+
+lcap_LSR <- bradesco_consolidado %>% filter(`NOME DO SEGURADO` == "LETICIA SILVA DA ROCHA")
+
+fwrite(lcap_LSR, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_LSR.csv", sep = "|", dec = ",")
+
+lcap_PKFT <- bradesco_consolidado %>% filter(`NOME DO PACIENTE` == "PAULO KATSUO FONSECA TAKAHASHI")
+
+fwrite(lcap_PKFT, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_PKFT.csv", sep = "|", dec = ",")
+
+lcap_PFS <- bradesco_consolidado %>% filter(`NOME DO PACIENTE` == "PEDRO FARIAS DOS SANTOS")
+
+fwrite(lcap_PFS, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_PFS.csv", sep = "|", dec = ",")
+
+lcap_GAM <- bradesco_consolidado %>% filter(`NOME DO PACIENTE` == "GILBERTO APARECIDO MANFRE")
+
+fwrite(lcap_GAM, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_GAM.csv", sep = "|", dec = ",")
+
+	
 
 analysis29 <- bradesco_consolidado %>% filter(grepl("QUIMIO", `NOME DO PROCEDIMENTO`) 
                                               | grepl("RADIOT", `NOME DO PROCEDIMENTO`)) %>% 
   select(`NOME DO SEGURADO`,`NOME DO PACIENTE`,`NOME DO PROCEDIMENTO`) %>% distinct()
 
-fwrite(analysis29, file = "D:/Users/sb046971/Documents/Terap_Colab_bradesco.csv", sep ="|")
+fwrite(analysis29, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Terap_Colab_bradesco.csv", sep ="|")
 
 #### forecast claim ####
 
 
-analytic <- fread("d:/Users/sb046971/Documents/prev_brad.txt")
+analytic <- fread("D:/Users/sb046971/OneDrive - Honda/Documentos/prev_brad.txt")
 
 tseries <- ts(analytic$Bradesco, frequency = 12, start = c(2007,5))
 
