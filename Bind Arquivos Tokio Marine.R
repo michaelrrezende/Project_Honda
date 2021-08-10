@@ -5,7 +5,7 @@ require(data.table)
 
 ############# BIND ARQUIVOS DE SEGURO DE VIDA ######
 
-setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Tokio Bind/Tábua biométrica 032021/")
+setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Tokio Bind/Tábua biométrica 082021/")
 
 base <- list.files(pattern = ".csv") %>%
   lapply(fread,dec = ",",colClasses = c("ESTITULANTE" = "character",
@@ -25,7 +25,7 @@ base <- list.files(pattern = ".csv") %>%
                   "PREMIO DESP MED E ODONTO","DATA_ADMISSAO","DATA_INI_VIGENCIA",
                   "SEXO","ESTADO_CIVIL"))  %>% bind_rows
 
-fwrite(base,file = "d:/Users/sb046971/OneDrive - Honda/Documentos/Tokio Bind/TÁBUA BIOMÉTRICA 032021/BASEFINAL.CSV",
+fwrite(base,file = "d:/Users/sb046971/OneDrive - Honda/Documentos/Tokio Bind/TÁBUA BIOMÉTRICA 082021/BASEFINAL.CSV",
        sep = "|", dec = ",")
 
 base$DATA_ADMISSAO <- as.Date(base$DATA_ADMISSAO, "%Y%m%d")

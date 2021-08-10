@@ -9,6 +9,8 @@ require(stringr)
 require(chron)
 require(extrafont)
 loadfonts(device = "win")
+require(readxl)
+require(xlsx)
 
 #### DROP WARNINGS ####
 
@@ -76,6 +78,138 @@ base_samel_honda_20 <- list.files(pattern = "HONDA") %>% lapply(
 base_samel <- bind_rows(base_samel_comp_18,base_samel_trad_18,base_samel_motoh_18,
                         base_samel_comp_19,base_samel_trad_19,base_samel_motoh_19,
                         base_samel_honda_20)
+
+#### BASE REAVALIAÇÃO 2021 ####
+
+setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Samel/reav 2021 - sinistros/")
+
+mes0620_mh <- read_xlsx("Moto Honda - jun 20.xlsx", sheet = "MH")
+mes0620_hc <- read_xlsx("Moto Honda - jun 20.xlsx", sheet = "HC")
+mes0620_ht <- read_xlsx("Moto Honda - jun 20.xlsx", sheet = "HT")
+
+mes0620_mh <- head(mes0620_mh, -2)
+mes0620_hc <- head(mes0620_hc, -2)
+mes0620_ht <- head(mes0620_ht, -2)
+
+mes0720_mh <- read_xlsx("Moto Honda - jul 20.xlsx", sheet = "MH")
+mes0720_hc <- read_xlsx("Moto Honda - jul 20.xlsx", sheet = "HC")
+mes0720_ht <- read_xlsx("Moto Honda - jul 20.xlsx", sheet = "HT")
+
+mes0720_mh <- head(mes0720_mh, -2)
+mes0720_hc <- head(mes0720_hc, -2)
+mes0720_ht <- head(mes0720_ht, -2)
+
+mes0820_mh <- read_xlsx("Moto Honda - ago 20.xlsx", sheet = "MH")
+mes0820_hc <- read_xlsx("Moto Honda - ago 20.xlsx", sheet = "HC")
+mes0820_ht <- read_xlsx("Moto Honda - ago 20.xlsx", sheet = "HT")
+
+mes0820_mh <- head(mes0820_mh, -2)
+mes0820_hc <- head(mes0820_hc, -2)
+mes0820_ht <- head(mes0820_ht, -2)
+
+mes0920_mh <- read_xlsx("Moto Honda - set 20.xlsx", sheet = "MH")
+mes0920_hc <- read_xlsx("Moto Honda - set 20.xlsx", sheet = "HC")
+mes0920_ht <- read_xlsx("Moto Honda - set 20.xlsx", sheet = "HT")
+
+mes0920_mh <- head(mes0920_mh, -2)
+mes0920_hc <- head(mes0920_hc, -2)
+mes0920_ht <- head(mes0920_ht, -2)
+
+mes1020_mh <- read_xlsx("Moto Honda - out 20.xlsx", sheet = "MH")
+mes1020_hc <- read_xlsx("Moto Honda - out 20.xlsx", sheet = "HC")
+mes1020_ht <- read_xlsx("Moto Honda - out 20.xlsx", sheet = "HT")
+
+mes1020_mh <- head(mes1020_mh, -2)
+mes1020_hc <- head(mes1020_hc, -2)
+mes1020_ht <- head(mes1020_ht, -2)
+
+mes1120_mh <- read_xlsx("Honda - nov 20.xlsx", sheet = "MH")
+mes1120_hc <- read_xlsx("Honda - nov 20.xlsx", sheet = "HC")
+mes1120_ht <- read_xlsx("Honda - nov 20.xlsx", sheet = "HT")
+
+mes1120_mh <- head(mes1120_mh, -2)
+mes1120_hc <- head(mes1120_hc, -2)
+mes1120_ht <- head(mes1120_ht, -2)
+
+mes1120_mh$DATA <- as.character(mes1120_mh$DATA)
+
+mes1220_mh <- read_xlsx("Moto Honda - dez 20.xlsx", sheet = "MH")
+mes1220_hc <- read_xlsx("Moto Honda - dez 20.xlsx", sheet = "HC")
+mes1220_ht <- read_xlsx("Moto Honda - dez 20.xlsx", sheet = "HT")
+
+mes1220_mh <- head(mes1220_mh, -2)
+mes1220_hc <- head(mes1220_hc, -2)
+mes1220_ht <- head(mes1220_ht, -2)
+
+mes0121_mh <- read_xlsx("Moto Honda - jan 21.xlsx", sheet = "MH")
+mes0121_hc <- read_xlsx("Moto Honda - jan 21.xlsx", sheet = "HC")
+mes0121_ht <- read_xlsx("Moto Honda - jan 21.xlsx", sheet = "HT")
+
+mes0121_mh <- head(mes0121_mh, -2)
+mes0121_hc <- head(mes0121_hc, -2)
+mes0121_ht <- head(mes0121_ht, -2)
+
+mes0121_mh$DATA <- as.character(mes0121_mh$DATA)
+mes0121_mh$MAT_CLIENTE <- as.character(mes0121_mh$MAT_CLIENTE)
+mes0121_mh$MAT_SAMEL <- as.numeric(mes0121_mh$MAT_SAMEL)
+
+mes0221_mh <- read_xlsx("Moto Honda - fev 21.xlsx", sheet = "MH")
+mes0221_hc <- read_xlsx("Moto Honda - fev 21.xlsx", sheet = "HC")
+mes0221_ht <- read_xlsx("Moto Honda - fev 21.xlsx", sheet = "HT")
+
+mes0221_mh <- head(mes0221_mh, -2)
+mes0221_hc <- head(mes0221_hc, -2)
+mes0221_ht <- head(mes0221_ht, -2)
+
+mes0321_mh <- read_xlsx("Moto Honda - mar 21.xlsx", sheet = "MH")
+mes0321_hc <- read_xlsx("Moto Honda - mar 21.xlsx", sheet = "HC")
+mes0321_ht <- read_xlsx("Moto Honda - mar 21.xlsx", sheet = "HT")
+
+mes0321_mh <- head(mes0321_mh, -2)
+mes0321_hc <- head(mes0321_hc, -2)
+mes0321_ht <- head(mes0321_ht, -2)
+
+mes0421_mh <- read_xlsx("MH - abr 21.xlsx", sheet = "MH")
+mes0421_hc <- read_xlsx("MH - abr 21.xlsx", sheet = "HC")
+mes0421_ht <- read_xlsx("MH - abr 21.xlsx", sheet = "HT")
+
+mes0421_mh <- head(mes0421_mh, -2)
+mes0421_hc <- head(mes0421_hc, -2)
+mes0421_ht <- head(mes0421_ht, -2)
+
+mes0521_mh <- read_xlsx("MH - mai 21.xlsx", sheet = "MH")
+mes0521_hc <- read_xlsx("MH - mai 21.xlsx", sheet = "HC")
+mes0521_ht <- read_xlsx("MH - mai 21.xlsx", sheet = "HT")
+
+mes0521_mh <- head(mes0521_mh, -2)
+mes0521_hc <- head(mes0521_hc, -2)
+mes0521_ht <- head(mes0521_ht, -2)
+
+reav.21 <- bind_rows(mes0620_hc,mes0620_ht,mes0620_mh,mes0720_hc,mes0720_ht,mes0720_mh,mes0820_hc,mes0820_ht,
+                     mes0820_mh,mes0920_hc,mes0920_ht,mes0920_mh,mes1020_hc,mes1020_ht,mes1020_mh,mes1120_hc,
+                     mes1120_ht,mes1120_mh,mes1220_hc,mes1220_ht,mes1220_mh,mes0121_hc,mes0121_ht,mes0121_mh,
+                     mes0221_hc,mes0221_ht,mes0221_mh,mes0321_hc,mes0321_ht,mes0321_mh,mes0421_hc,mes0421_ht,
+                     mes0421_mh,mes0521_hc,mes0521_ht,mes0521_mh)
+
+fwrite(reav.21, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Samel/reav 2021 - sinistros/base_reav21.csv", sep = "|",dec = ",")
+
+#### TREATMENT DATABASE ####
+
+reav.21junc <- fread("D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Samel/reav 2021 - sinistros/reav_juncao.csv",dec = ",",colClasses = c("COD_BENEFICIARIO" = "character"))
+
+reav.21junc$DATA <- as.Date(reav.21junc$DATA, "%d/%m/%Y")
+
+reav.21junc$DATANASCIMENTO <- as.Date(reav.21junc$DATANASCIMENTO, "%d/%m/%Y")
+
+reav.21junc$DUPLICADOS <- duplicated(reav.21junc)
+
+reav.21junc$VALORFIM <- reav.21junc$VALOR*reav.21junc$QTDE
+
+reav.21junc %>% filter(DUPLICADOS == 
+                        "TRUE") %>% group_by(.) %>% summarise(sum(VALORFIM,na.rm = T))
+
+fwrite(reav.21junc, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Samel/reav 2021 - sinistros/reav_fim.csv", sep = "|",dec = ",")
+
 
 #### REPLACE NUMERIC VALUES #####
 
@@ -242,7 +376,7 @@ ggplot(analysis10,aes(diaEvxPg,VALORFIM)) +
 
 require(readxl)
 
-setwd("D:/Users/sb046971/Documents/Sinistro Samel/")
+setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Samel/")
 
 mt.mar <- read_excel("Honda - mar 20.xlsx", sheet = 1)
 hc.mar <- read_excel("Honda - mar 20.xlsx", sheet = 2)

@@ -937,6 +937,54 @@ mes0221$`VALOR DO RECIBO` <- mes0221$`VALOR DO RECIBO`/100
 mes0221$`VALOR DO SINISTRO` <- mes0221$`VALOR DO SINISTRO`/100
 mes0221$`VALOR DE INSS OU ISS ($)` <- mes0221$`VALOR DE INSS OU ISS ($)`/100
 
+#mes 03/2021
+
+mes0321 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2103_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0321$"VALOR PAGO" <- mes0321$"VALOR PAGO"/100
+mes0321$`VALOR DO RECIBO` <- mes0321$`VALOR DO RECIBO`/100
+mes0321$`VALOR DO SINISTRO` <- mes0321$`VALOR DO SINISTRO`/100
+mes0321$`VALOR DE INSS OU ISS ($)` <- mes0321$`VALOR DE INSS OU ISS ($)`/100
+
+#mes 04/2021
+
+mes0421 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Bradesco/SN2104_D071015.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("VALOR PAGO" = col_integer(),
+                   "VALOR DO SINISTRO" = col_integer(),
+                   "VALOR DO RECIBO" = col_integer(), 
+                   "VALOR DE INSS OU ISS ($)" = col_integer(),
+                   "VALOR DE INSS OU ISS (FAJ-TR)" = col_integer(),
+                   "QUANTIDADE PROCEDIMENTOS" = col_integer(),
+                   "DATA DO PAGAMENTO" = col_character(),
+                   "DATA DE NASCIMENTO" = col_character(),
+                   "DATA DE ADMISSÃO" = col_character(),
+                   "DATA DE NASCIMENTO(Y2K)" = col_character(),
+                   "DATA DO EVENTO(Y2K)" = col_character(),
+                   "DATA DO PAGAMENTO(Y2K)" = col_character())) %>% filter(
+                     !str_detect(`TIPO DE REGISTRO`, "T"))
+
+mes0421$"VALOR PAGO" <- mes0421$"VALOR PAGO"/100
+mes0421$`VALOR DO RECIBO` <- mes0421$`VALOR DO RECIBO`/100
+mes0421$`VALOR DO SINISTRO` <- mes0421$`VALOR DO SINISTRO`/100
+mes0421$`VALOR DE INSS OU ISS ($)` <- mes0421$`VALOR DE INSS OU ISS ($)`/100
+
 #### BIND DATABASE ALL MONTHS ####
 
 bradesco_consolidado <- bind_rows(mes0518,mes0618,mes0718,mes0818,mes0918,mes1018,
@@ -944,7 +992,7 @@ bradesco_consolidado <- bind_rows(mes0518,mes0618,mes0718,mes0818,mes0918,mes101
                                   mes0519,mes0619,mes0719,mes0819,mes0919,mes1019,
                                   mes1119,mes1219,mes0120,mes0220,mes0320,mes0420,
                                   mes0520,mes0620,mes0720,mes0820,mes0920,mes1020,
-                                  mes1120,mes1220,mes0121,mes0221)
+                                  mes1120,mes1220,mes0121,mes0221,mes0321,mes0421)
 
 #### TREATMENT DATABASE FACTORS ####
 
@@ -1155,6 +1203,8 @@ bradesco_consolidado$flag12meses <- if_else(bradesco_consolidado$mesEvxPg > 11,"
 bradesco_consolidado$flag4meses <- if_else(bradesco_consolidado$diaEvxPg > 120,"+","0")
 
 bradesco_consolidado$flag6meses <- if_else(bradesco_consolidado$diaEvxPg > 180,"+","0")
+
+bradesco_consolidado$flag495dias <- if_else(bradesco_consolidado$diaEvxPg > 495,"+","0")
 
 table(bradesco_consolidado$flag12meses)
 
@@ -1501,7 +1551,13 @@ lcap_GAM <- bradesco_consolidado %>% filter(`NOME DO PACIENTE` == "GILBERTO APAR
 
 fwrite(lcap_GAM, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_GAM.csv", sep = "|", dec = ",")
 
-	
+lcap_RSY <- bradesco_consolidado %>% filter(`NOME DO SEGURADO` == "ROBERTO SOITI YASUGUI")
+
+fwrite(lcap_RSY, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_RSY.csv", sep = "|", dec = ",")
+
+lcap_RM <- bradesco_consolidado %>% filter(`NOME DO PACIENTE` == "RENATO MATSUDA")
+
+fwrite(lcap_RM, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap_RM.csv", sep = "|", dec = ",")
 
 analysis29 <- bradesco_consolidado %>% filter(grepl("QUIMIO", `NOME DO PROCEDIMENTO`) 
                                               | grepl("RADIOT", `NOME DO PROCEDIMENTO`)) %>% 

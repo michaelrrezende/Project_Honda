@@ -159,6 +159,51 @@ mes06.20 <- list.files(pattern = "PP_202006") %>% lapply(
 
 mes06.20$V1 <- str_replace_all(mes06.20$V1, "\"", " ")
 
+mes07.20 <- list.files(pattern = "PP_202007") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "\"", " ")
+
+mes08.20 <- list.files(pattern = "PP_202008") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "\"", " ")
+
+mes09.20 <- list.files(pattern = "PP_202009") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "\"", " ")
+
+mes10.20 <- list.files(pattern = "PP_202010") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "\"", " ")
+
+mes11.20 <- list.files(pattern = "PP_202011") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "\"", " ")
+
+mes12.20 <- list.files(pattern = "PP_202012") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "\"", " ")
+
+mes01.21 <- list.files(pattern = "PP_202101") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "\"", " ")
+
+mes02.21 <- list.files(pattern = "PP_202102") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "\"", " ")
+
+mes03.21 <- list.files(pattern = "PP_202103") %>% lapply(
+  fread, h = F, sep = NULL) %>% bind_rows()
+
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "\"", " ")
+
 ###### REPLACE SPECIAL CHARACTERS #######
 
 mes04.18$V1 <- str_replace_all(mes04.18$V1, "ª", "a")
@@ -188,6 +233,15 @@ mes03.20$V1 <- str_replace_all(mes03.20$V1, "ª", "a")
 mes04.20$V1 <- str_replace_all(mes04.20$V1, "ª", "a")
 mes05.20$V1 <- str_replace_all(mes05.20$V1, "ª", "a")
 mes06.20$V1 <- str_replace_all(mes06.20$V1, "ª", "a")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "ª", "a")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "ª", "a")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "ª", "a")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "ª", "a")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "ª", "a")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "ª", "a")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "ª", "a")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "ª", "a")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "ª", "a")
 
 mes04.18$V1 <- str_replace_all(mes04.18$V1, "ã", "a")
 mes04.18$V1 <- str_replace_all(mes04.18$V1, "à", "a")
@@ -724,61 +778,268 @@ mes06.20$V1 <- str_replace_all(mes06.20$V1, "Ô", "O")
 mes06.20$V1 <- str_replace_all(mes06.20$V1, "â", "a")
 mes06.20$V1 <- str_replace_all(mes06.20$V1, "Â", "A")
 
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "\"", "")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "ã", "a")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "à", "a")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "á", "a")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "Á", "A")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "À", "A")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "Ã", "A")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "Ç", "C")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "É", "E")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "È", "E")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "Ó", "O")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "í", "i")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "õ", "o")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "Í", "I")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "Ú", "U")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "ú", "u")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "õ", "o")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "Ô", "O")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "â", "a")
+mes07.20$V1 <- str_replace_all(mes07.20$V1, "Â", "A")
+
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "\"", "")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "ã", "a")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "à", "a")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "á", "a")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "Á", "A")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "À", "A")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "Ã", "A")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "Ç", "C")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "É", "E")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "È", "E")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "Ó", "O")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "í", "i")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "õ", "o")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "Í", "I")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "Ú", "U")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "ú", "u")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "õ", "o")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "Ô", "O")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "â", "a")
+mes08.20$V1 <- str_replace_all(mes08.20$V1, "Â", "A")
+
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "\"", "")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "ã", "a")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "à", "a")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "á", "a")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "Á", "A")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "À", "A")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "Ã", "A")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "Ç", "C")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "É", "E")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "È", "E")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "Ó", "O")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "í", "i")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "õ", "o")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "Í", "I")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "Ú", "U")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "ú", "u")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "õ", "o")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "Ô", "O")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "â", "a")
+mes09.20$V1 <- str_replace_all(mes09.20$V1, "Â", "A")
+
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "\"", "")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "ã", "a")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "à", "a")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "á", "a")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "Á", "A")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "À", "A")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "Ã", "A")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "Ç", "C")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "É", "E")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "È", "E")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "Ó", "O")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "í", "i")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "õ", "o")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "Í", "I")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "Ú", "U")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "ú", "u")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "õ", "o")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "Ô", "O")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "â", "a")
+mes10.20$V1 <- str_replace_all(mes10.20$V1, "Â", "A")
+
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "\"", "")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "ã", "a")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "à", "a")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "á", "a")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "Á", "A")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "À", "A")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "Ã", "A")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "Ç", "C")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "É", "E")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "È", "E")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "Ó", "O")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "í", "i")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "õ", "o")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "Í", "I")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "Ú", "U")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "ú", "u")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "õ", "o")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "Ô", "O")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "â", "a")
+mes11.20$V1 <- str_replace_all(mes11.20$V1, "Â", "A")
+
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "\"", "")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "ã", "a")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "à", "a")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "á", "a")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "Á", "A")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "À", "A")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "Ã", "A")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "Ç", "C")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "É", "E")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "È", "E")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "Ó", "O")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "í", "i")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "õ", "o")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "Í", "I")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "Ú", "U")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "ú", "u")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "õ", "o")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "Ô", "O")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "â", "a")
+mes12.20$V1 <- str_replace_all(mes12.20$V1, "Â", "A")
+
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "\"", "")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "ã", "a")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "à", "a")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "á", "a")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "Á", "A")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "À", "A")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "Ã", "A")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "Ç", "C")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "É", "E")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "È", "E")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "Ó", "O")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "í", "i")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "õ", "o")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "Í", "I")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "Ú", "U")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "ú", "u")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "õ", "o")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "Ô", "O")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "â", "a")
+mes01.21$V1 <- str_replace_all(mes01.21$V1, "Â", "A")
+
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "\"", "")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "ã", "a")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "à", "a")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "á", "a")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "Á", "A")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "À", "A")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "Ã", "A")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "Ç", "C")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "É", "E")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "È", "E")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "Ó", "O")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "í", "i")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "õ", "o")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "Í", "I")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "Ú", "U")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "ú", "u")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "õ", "o")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "Ô", "O")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "â", "a")
+mes02.21$V1 <- str_replace_all(mes02.21$V1, "Â", "A")
+
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "\"", "")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "ã", "a")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "à", "a")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "á", "a")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "Á", "A")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "À", "A")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "Ã", "A")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "Ç", "C")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "É", "E")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "È", "E")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "Ó", "O")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "í", "i")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "õ", "o")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "Í", "I")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "Ú", "U")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "ú", "u")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "õ", "o")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "Ô", "O")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "â", "a")
+mes03.21$V1 <- str_replace_all(mes03.21$V1, "Â", "A")
+
 ##### WRITE ARCHIVES #####
 
-fwrite(mes04.18, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201804_PP.txt",
+fwrite(mes04.18, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201804_PP.txt",
        quote = F)
-fwrite(mes05.18, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201805_PP.txt",
+fwrite(mes05.18, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201805_PP.txt",
        quote = F)
-fwrite(mes06.18, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201806_PP.txt",
+fwrite(mes06.18, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201806_PP.txt",
        quote = F)
-fwrite(mes07.18, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201807_PP.txt",
+fwrite(mes07.18, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201807_PP.txt",
        quote = F)
-fwrite(mes08.18, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201808_PP.txt",
+fwrite(mes08.18, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201808_PP.txt",
        quote = F)
-fwrite(mes09.18, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201809_PP.txt",
+fwrite(mes09.18, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201809_PP.txt",
        quote = F)
-fwrite(mes10.18, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201810_PP.txt",
+fwrite(mes10.18, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201810_PP.txt",
        quote = F)
-fwrite(mes11.18, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201811_PP.txt", 
+fwrite(mes11.18, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201811_PP.txt", 
        quote = F)
-fwrite(mes12.18, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201812_PP.txt", 
+fwrite(mes12.18, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201812_PP.txt", 
        quote = F)
-fwrite(mes01.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201901_PP.txt", 
+fwrite(mes01.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201901_PP.txt", 
        quote = F)
-fwrite(mes02.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201902_PP.txt", 
+fwrite(mes02.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201902_PP.txt", 
        quote = F)
-fwrite(mes03.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201903_PP.txt",
+fwrite(mes03.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201903_PP.txt",
        quote = F)
-fwrite(mes04.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201904_PP.txt",
+fwrite(mes04.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201904_PP.txt",
        quote = F)
-fwrite(mes05.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201905_PP.txt",
+fwrite(mes05.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201905_PP.txt",
        quote = F)
-fwrite(mes06.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201906_PP.txt", 
+fwrite(mes06.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201906_PP.txt", 
        quote = F)
-fwrite(mes07.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201907_PP.txt", 
+fwrite(mes07.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201907_PP.txt", 
        quote = F)
-fwrite(mes08.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201908_PP.txt", 
+fwrite(mes08.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201908_PP.txt", 
        quote = F)
-fwrite(mes09.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201909_PP.txt", 
+fwrite(mes09.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201909_PP.txt", 
        quote = F)
-fwrite(mes10.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201910_PP.txt", 
+fwrite(mes10.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201910_PP.txt", 
        quote = F)
-fwrite(mes11.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201911_PP.txt", 
+fwrite(mes11.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201911_PP.txt", 
        quote = F)
-fwrite(mes12.19, file = "D:/Users/sb046971/Documents/Sinistro Unimed/201912_PP.txt", 
+fwrite(mes12.19, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201912_PP.txt", 
        quote = F)
-fwrite(mes01.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202001_PP.txt", 
+fwrite(mes01.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202001_PP.txt", 
        quote = F)
-fwrite(mes02.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202002_PP.txt", 
+fwrite(mes02.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202002_PP.txt", 
        quote = F)
-fwrite(mes03.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202003_PP.txt", 
+fwrite(mes03.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202003_PP.txt", 
        quote = F)
-fwrite(mes04.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202004_PP.txt", 
+fwrite(mes04.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202004_PP.txt", 
        quote = F)
-fwrite(mes05.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202005_PP.txt", 
+fwrite(mes05.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202005_PP.txt", 
        quote = F)
-fwrite(mes06.20, file = "D:/Users/sb046971/Documents/Sinistro Unimed/202006_PP.txt", 
+fwrite(mes06.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202006_PP.txt", 
+       quote = F)
+fwrite(mes07.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202007_PP.txt", 
+       quote = F)
+fwrite(mes08.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202008_PP.txt", 
+       quote = F)
+fwrite(mes09.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202009_PP.txt", 
+       quote = F)
+fwrite(mes10.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202010_PP.txt", 
+       quote = F)
+fwrite(mes11.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202011_PP.txt", 
+       quote = F)
+fwrite(mes12.20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202012_PP.txt", 
+       quote = F)
+fwrite(mes01.21, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202101_PP.txt", 
+       quote = F)
+fwrite(mes02.21, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202102_PP.txt", 
+       quote = F)
+fwrite(mes03.21, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202103_PP.txt", 
        quote = F)
 
 #### WIDTHS AND NAMES LAYOUT BRADESCO ####
@@ -807,7 +1068,7 @@ names = c("Competencia","Nome do Contratado","CGC contratado",
 
 #### READ MONTHS TREATMENT ####
 
-mes0518 <-readr::read_fwf("d:/Users/sb046971/Documents/Sinistro Unimed/201805_PP.txt",
+mes0518 <-readr::read_fwf("d:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201805_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),
                    "Centro de Custo" = col_character(),
@@ -842,7 +1103,7 @@ mes0518$`Valor` <- mes0518$`Valor`/100
 mes0518$`Taxa Administrativa` <- mes0518$`Taxa Administrativa`/100000
 mes0518$`Valor copart` <- mes0518$`Valor copart`/100
 
-mes0618 <- readr:: read_fwf("d:/Users/sb046971/Documents/Sinistro Unimed/201806_PP.txt",
+mes0618 <- readr:: read_fwf("d:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201806_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),
                    "Centro de Custo" = col_character(),
@@ -877,7 +1138,7 @@ mes0618$`Valor` <- mes0618$`Valor`/100
 mes0618$`Taxa Administrativa` <- mes0618$`Taxa Administrativa`/100000
 mes0618$`Valor copart` <- mes0618$`Valor copart`/100
 
-mes0718 <- readr:: read_fwf("d:/Users/sb046971/Documents/Sinistro Unimed/201807_PP.txt",
+mes0718 <- readr:: read_fwf("d:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201807_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),          
                    "Centro de Custo" = col_character(),
@@ -912,7 +1173,7 @@ mes0718$`Valor` <- mes0718$`Valor`/100
 mes0718$`Taxa Administrativa` <- mes0718$`Taxa Administrativa`/100000
 mes0718$`Valor copart` <- mes0718$`Valor copart`/100
 
-mes0818 <- readr:: read_fwf("d:/Users/sb046971/Documents/Sinistro Unimed/201808_PP.txt",
+mes0818 <- readr:: read_fwf("d:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201808_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),              
                    "Centro de Custo" = col_character(),
@@ -947,7 +1208,7 @@ mes0818$`Valor` <- mes0818$`Valor`/100
 mes0818$`Taxa Administrativa` <- mes0818$`Taxa Administrativa`/100000
 mes0818$`Valor copart` <- mes0818$`Valor copart`/100
 
-mes0918 <- readr:: read_fwf("d:/Users/sb046971/Documents/Sinistro Unimed/201809_PP.txt",
+mes0918 <- readr:: read_fwf("d:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201809_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),               
                    "Centro de Custo" = col_character(),
@@ -982,7 +1243,7 @@ mes0918$`Valor` <- mes0918$`Valor`/100
 mes0918$`Taxa Administrativa` <- mes0918$`Taxa Administrativa`/100000
 mes0918$`Valor copart` <- mes0918$`Valor copart`/100
 
-mes1018 <- readr:: read_fwf("d:/Users/sb046971/Documents/Sinistro Unimed/201810_PP.txt",
+mes1018 <- readr:: read_fwf("d:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201810_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),               
                    "Centro de Custo" = col_character(),
@@ -1017,7 +1278,7 @@ mes1018$`Valor` <- mes1018$`Valor`/100
 mes1018$`Taxa Administrativa` <- mes1018$`Taxa Administrativa`/100000
 mes1018$`Valor copart` <- mes1018$`Valor copart`/100
 
-mes1118 <- readr:: read_fwf("d:/Users/sb046971/Documents/Sinistro Unimed/201811_PP.txt",
+mes1118 <- readr:: read_fwf("d:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201811_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),               
                    "Centro de Custo" = col_character(),
@@ -1052,7 +1313,7 @@ mes1118$`Valor` <- mes1118$`Valor`/100
 mes1118$`Taxa Administrativa` <- mes1118$`Taxa Administrativa`/100000
 mes1118$`Valor copart` <- mes1118$`Valor copart`/100
 
-mes1218 <- readr:: read_fwf("D:/Users/sb046971/Documents/Sinistro Unimed/201812_PP.txt",
+mes1218 <- readr:: read_fwf("D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201812_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),              
                    "Centro de Custo" = col_character(),
@@ -1087,7 +1348,7 @@ mes1218$`Valor` <- mes1218$`Valor`/100
 mes1218$`Taxa Administrativa` <- mes1218$`Taxa Administrativa`/100000
 mes1218$`Valor copart` <- mes1218$`Valor copart`/100
 
-mes0119 <- readr:: read_fwf("d:/Users/sb046971/Documents/Sinistro Unimed/201901_PP.txt",
+mes0119 <- readr:: read_fwf("d:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201901_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),              
                    "Centro de Custo" = col_character(),
@@ -1122,7 +1383,7 @@ mes0119$`Valor` <- mes0119$`Valor`/100
 mes0119$`Taxa Administrativa` <- mes0119$`Taxa Administrativa`/100000
 mes0119$`Valor copart` <- mes0119$`Valor copart`/100
 
-mes0219 <- readr:: read_fwf("D:/Users/sb046971/Documents/Sinistro Unimed/201902_PP.txt",
+mes0219 <- readr:: read_fwf("D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201902_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),             
                    "Centro de Custo" = col_character(),
@@ -1157,7 +1418,7 @@ mes0219$`Valor` <- mes0219$`Valor`/100
 mes0219$`Taxa Administrativa` <- mes0219$`Taxa Administrativa`/100000
 mes0219$`Valor copart` <- mes0219$`Valor copart`/100
 
-mes0319 <- readr:: read_fwf("d:/Users/sb046971/Documents/Sinistro Unimed/201903_PP.txt",
+mes0319 <- readr:: read_fwf("d:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201903_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),             
                    "Centro de Custo" = col_character(),
@@ -1193,7 +1454,7 @@ mes0319$`Taxa Administrativa` <- mes0319$`Taxa Administrativa`/100000
 mes0319$`Valor copart` <- mes0319$`Valor copart`/100
 
 mes0419 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/201904_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201904_PP.txt",
   locale = readr::locale(encoding = "latin1"),
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),             
@@ -1230,7 +1491,7 @@ mes0419$`Taxa Administrativa` <- mes0419$`Taxa Administrativa`/100000
 mes0419$`Valor copart` <- mes0419$`Valor copart`/100
 
 mes0519 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/201905_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201905_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),            
                    "Centro de Custo" = col_character(),
@@ -1266,7 +1527,7 @@ mes0519$`Taxa Administrativa` <- mes0519$`Taxa Administrativa`/100000
 mes0519$`Valor copart` <- mes0519$`Valor copart`/100
 
 mes0619 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/201906_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201906_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1302,7 +1563,7 @@ mes0619$`Taxa Administrativa` <- mes0619$`Taxa Administrativa`/100000
 mes0619$`Valor copart` <- mes0619$`Valor copart`/100
 
 mes0719 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/201907_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201907_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1338,7 +1599,7 @@ mes0719$`Taxa Administrativa` <- mes0719$`Taxa Administrativa`/100000
 mes0719$`Valor copart` <- mes0719$`Valor copart`/100
 
 mes0819 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/201908_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201908_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1374,7 +1635,7 @@ mes0819$`Taxa Administrativa` <- mes0819$`Taxa Administrativa`/100000
 mes0819$`Valor copart` <- mes0819$`Valor copart`/100
 
 mes0919 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/201909_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201909_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1410,7 +1671,7 @@ mes0919$`Taxa Administrativa` <- mes0919$`Taxa Administrativa`/100000
 mes0919$`Valor copart` <- mes0919$`Valor copart`/100
 
 mes1019 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/201910_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201910_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1446,7 +1707,7 @@ mes1019$`Taxa Administrativa` <- mes1019$`Taxa Administrativa`/100000
 mes1019$`Valor copart` <- mes1019$`Valor copart`/100
 
 mes1119 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/201911_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201911_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1482,7 +1743,7 @@ mes1119$`Taxa Administrativa` <- mes1119$`Taxa Administrativa`/100000
 mes1119$`Valor copart` <- mes1119$`Valor copart`/100
 
 mes1219 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/201912_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/201912_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1518,7 +1779,7 @@ mes1219$`Taxa Administrativa` <- mes1219$`Taxa Administrativa`/100000
 mes1219$`Valor copart` <- mes1219$`Valor copart`/100
 
 mes0120 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202001_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202001_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1554,7 +1815,7 @@ mes0120$`Taxa Administrativa` <- mes0120$`Taxa Administrativa`/100000
 mes0120$`Valor copart` <- mes0120$`Valor copart`/100
 
 mes0220 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202002_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202002_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1590,7 +1851,7 @@ mes0220$`Taxa Administrativa` <- mes0220$`Taxa Administrativa`/100000
 mes0220$`Valor copart` <- mes0220$`Valor copart`/100
 
 mes0320 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202002_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202003_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1626,7 +1887,7 @@ mes0320$`Taxa Administrativa` <- mes0320$`Taxa Administrativa`/100000
 mes0320$`Valor copart` <- mes0320$`Valor copart`/100
 
 mes0420 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202004_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202004_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1662,7 +1923,7 @@ mes0420$`Taxa Administrativa` <- mes0420$`Taxa Administrativa`/100000
 mes0420$`Valor copart` <- mes0420$`Valor copart`/100
 
 mes0520 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202005_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202005_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1698,7 +1959,7 @@ mes0520$`Taxa Administrativa` <- mes0520$`Taxa Administrativa`/100000
 mes0520$`Valor copart` <- mes0520$`Valor copart`/100
 
 mes0620 <- readr:: read_fwf(
-  file ="D:/Users/sb046971/Documents/Sinistro Unimed/202006_PP.txt",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202006_PP.txt",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("Competencia" = col_character(),                 
                    "Centro de Custo" = col_character(),
@@ -1733,12 +1994,337 @@ mes0620$`Valor` <- mes0620$`Valor`/100
 mes0620$`Taxa Administrativa` <- mes0620$`Taxa Administrativa`/100000
 mes0620$`Valor copart` <- mes0620$`Valor copart`/100
 
+mes0720 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202007_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0720$`Quantidade` <- mes0720$`Quantidade`/100
+mes0720$`Qtd ch` <- mes0720$`Qtd ch`/100
+mes0720$`Valor` <- mes0720$`Valor`/100
+mes0720$`Taxa Administrativa` <- mes0720$`Taxa Administrativa`/100000
+mes0720$`Valor copart` <- mes0720$`Valor copart`/100
+
+mes0820 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202008_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0820$`Quantidade` <- mes0820$`Quantidade`/100
+mes0820$`Qtd ch` <- mes0820$`Qtd ch`/100
+mes0820$`Valor` <- mes0820$`Valor`/100
+mes0820$`Taxa Administrativa` <- mes0820$`Taxa Administrativa`/100000
+mes0820$`Valor copart` <- mes0820$`Valor copart`/100
+
+mes0920 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202009_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0920$`Quantidade` <- mes0920$`Quantidade`/100
+mes0920$`Qtd ch` <- mes0920$`Qtd ch`/100
+mes0920$`Valor` <- mes0920$`Valor`/100
+mes0920$`Taxa Administrativa` <- mes0920$`Taxa Administrativa`/100000
+mes0920$`Valor copart` <- mes0920$`Valor copart`/100
+
+mes1020 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202010_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes1020$`Quantidade` <- mes1020$`Quantidade`/100
+mes1020$`Qtd ch` <- mes1020$`Qtd ch`/100
+mes1020$`Valor` <- mes1020$`Valor`/100
+mes1020$`Taxa Administrativa` <- mes1020$`Taxa Administrativa`/100000
+mes1020$`Valor copart` <- mes1020$`Valor copart`/100
+
+mes1120 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202011_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes1120$`Quantidade` <- mes1120$`Quantidade`/100
+mes1120$`Qtd ch` <- mes1120$`Qtd ch`/100
+mes1120$`Valor` <- mes1120$`Valor`/100
+mes1120$`Taxa Administrativa` <- mes1120$`Taxa Administrativa`/100000
+mes1120$`Valor copart` <- mes1120$`Valor copart`/100
+
+mes1220 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202012_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes1220$`Quantidade` <- mes1220$`Quantidade`/100
+mes1220$`Qtd ch` <- mes1220$`Qtd ch`/100
+mes1220$`Valor` <- mes1220$`Valor`/100
+mes1220$`Taxa Administrativa` <- mes1220$`Taxa Administrativa`/100000
+mes1220$`Valor copart` <- mes1220$`Valor copart`/100
+
+mes0121 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202101_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0121$`Quantidade` <- mes0121$`Quantidade`/100
+mes0121$`Qtd ch` <- mes0121$`Qtd ch`/100
+mes0121$`Valor` <- mes0121$`Valor`/100
+mes0121$`Taxa Administrativa` <- mes0121$`Taxa Administrativa`/100000
+mes0121$`Valor copart` <- mes0121$`Valor copart`/100
+
+mes0221 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202102_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0221$`Quantidade` <- mes0221$`Quantidade`/100
+mes0221$`Qtd ch` <- mes0221$`Qtd ch`/100
+mes0221$`Valor` <- mes0221$`Valor`/100
+mes0221$`Taxa Administrativa` <- mes0221$`Taxa Administrativa`/100000
+mes0221$`Valor copart` <- mes0221$`Valor copart`/100
+
+mes0321 <- readr:: read_fwf(
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Sinistro Unimed/202103_PP.txt",
+  fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
+  col_types = cols("Competencia" = col_character(),                 
+                   "Centro de Custo" = col_character(),
+                   "CGC contratado" = col_character(),
+                   "Código do titular" = col_character(), 
+                   "Código do paciente" = col_character(),
+                   "Data apresentação-prod med" = col_character(),
+                   "Data de atendimento" = col_character(),
+                   "Identificador nota intercâmbio" = col_character(),
+                   "Identificador da produção médica" = col_character(),    
+                   "Indicador de acidente de trab" = col_character(),
+                   "Número da solicitação" = col_character(),
+                   "Código do serviço" = col_character(),
+                   "Quantidade" = col_integer(),             
+                   "Matrícula" = col_character(),
+                   "Qtd ch" = col_integer(),
+                   "Valor" = col_integer(),
+                   "Taxa Administrativa" = col_integer(),
+                   "Data de internação" = col_character(),
+                   "Data de alta" = col_character(),
+                   "Código do solicitante" = col_character(),
+                   "Código do executante" = col_character(),
+                   "Data de exclusão" = col_character(),
+                   "Código do Contrato" = col_character(),
+                   "Valor copart" = col_integer(),   
+                   "Data Nascimento" = col_character(),     
+                   "Tipo de diária" = col_character()))
+
+mes0321$`Quantidade` <- mes0321$`Quantidade`/100
+mes0321$`Qtd ch` <- mes0321$`Qtd ch`/100
+mes0321$`Valor` <- mes0321$`Valor`/100
+mes0321$`Taxa Administrativa` <- mes0321$`Taxa Administrativa`/100000
+mes0321$`Valor copart` <- mes0321$`Valor copart`/100
+
 #### BIND DATABASE ALL MONTHS ####
 
 unimed_consolidado <- bind_rows(mes0518,mes0618,mes0718,mes0818,mes0918,mes1018,mes1118,
                                 mes1218,mes0119,mes0219,mes0319,mes0419,mes0519,mes0619,
                                 mes0719,mes0819,mes0919,mes1019,mes1119,mes1219,mes0120,
-                                mes0220,mes0420,mes0520,mes0620)
+                                mes0220,mes0320,mes0420,mes0520,mes0620,mes0720,mes0820,
+                                mes0920,mes1020,mes1120,mes1220,mes0121,mes0221,mes0321)
 
 
 unimed_consolidado$DUPLICADOS <- duplicated(unimed_consolidado)
@@ -1902,34 +2488,40 @@ analysis15 <- base_unimed %>% filter(
     `Nome do paciente`) %>% summarise(qt_cons = sum(Quantidade),
                                       valor = sum(Valor))
 
-analysis16 <- base_unimed %>% group_by(Competencia,`Código do Contrato`,
+analysis16 <- base_unimed %>% group_by(`Código do Contrato`,
                                        `Nome do titular`,
-                                       `Nome do paciente`,
-                                       `Tipo da produção médica`,
-                                       `Código do serviço`) %>% summarise(
+                                       `Nome do paciente`) %>% summarise(
                                          valor_gasto = sum(Valor))
 
-fwrite(analysis16, file = "D:/Users/sb046971/Documents/HighUsers_Unimed.csv",
+fwrite(analysis16, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/HighUsers_Unimed.csv",
        sep = ";", dec = ",")
 
-fwrite(base_unimed, file = "D:/Users/sb046971/Documents/base_unimed.csv",
+fwrite(base_unimed, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/base_unimed.csv",
        sep = "|", dec = ",")
 
 # lcapP <- base_unimed %>% filter(`Nome do titular` == "PAULO ISSAO SAITO")
 # 
-# fwrite(lcapP, file = "D:/Users/sb046971/Documents/lcap - P.csv", dec = ",", sep = "|")
+# fwrite(lcapP, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap - P.csv", dec = ",", sep = "|")
 
-# lcapMED <- base_unimed %>% filter(`Nome do paciente` == "MARIA EDUARDA DEO")
-# 
-# fwrite(lcapMED, file = "D:/Users/sb046971/Documents/lcap - MED.csv", dec = ",", sep = "|")
-# 
-# lcapMLO <- base_unimed %>% filter(`Nome do paciente` == "MIGUEL LIMA DE OLIVEIRA")
-# 
-# fwrite(lcapMLO, file = "D:/Users/sb046971/Documents/lcap - MLO.csv", dec = ",", sep = "|")
+lcapMED <- unimed_consolidad %>% filter(`Nome do paciente` == "MARIA EDUARDA DEO")
+
+fwrite(lcapMED, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap - MED.csv", dec = ",", sep = "|")
+
+lcapMLO <- unimed_consolidad %>% filter(`Nome do paciente` == "MIGUEL LIMA DE OLIVEIRA")
+
+fwrite(lcapMLO, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap - MLO.csv", dec = ",", sep = "|")
+
+lcapPSV <- unimed_consolidad %>% filter(`Nome do paciente` == "PEDRO DOS SANTOS VIEIRA")
+
+fwrite(lcapPSV, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap - PSV.csv", dec = ",", sep = "|")
 
 # lcapESSM <- unimed_consolidad %>% filter(`Nome do paciente` == "EMANUEL SOARES SILVA MIRANDA")
 # 
-# fwrite(lcapESSM, file = "D:/Users/sb046971/Documents/lcap - ESSM.csv", dec = ",", sep = "|")
+# fwrite(lcapESSM, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap - ESSM.csv", dec = ",", sep = "|")
+
+# lcapESSM <- unimed_consolidad %>% filter(`Nome do paciente` == "EMANUEL SOARES SILVA MIRANDA")
+# 
+# fwrite(lcapESSM, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/lcap - ESSM.csv", dec = ",", sep = "|")
 
 
 analysis17 <- base_unimed %>% filter(grepl('DOMICILIAR',`Descrição do serviço`))
@@ -1937,7 +2529,7 @@ analysis17 <- base_unimed %>% filter(grepl('DOMICILIAR',`Descrição do serviço
 analysis18 <- analysis17 %>% group_by(`Nome do titular`,
                                       `Nome do paciente`) %>% summarise(valor = sum(`Valor`))
 
-fwrite(analysis17, file = "D:/Users/sb046971/Documents/HighUsers-HC.csv", sep = "|",dec = ",")
+fwrite(analysis17, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/HighUsers-HC.csv", sep = "|",dec = ",")
 
 analysis19 <- base_unimed %>% filter(grepl('2019',
                                            Competencia)) %>% group_by(
@@ -1949,4 +2541,4 @@ analysis20 <- unimed %>% filter(grepl("QUIMIO", `Descrição do serviço`)
                                 | grepl("RADIOT", `Descrição do serviço`)) %>% 
   select(`Nome do titular`, `Nome do paciente`,`Descrição do serviço`) %>% distinct()
 
-fwrite(analysis20, file = "D:/Users/sb046971/Documents/Terap_Colab_unimed.csv", sep ="|")
+fwrite(analysis20, file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Terap_Colab_unimed.csv", sep ="|")

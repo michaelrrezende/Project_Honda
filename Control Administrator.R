@@ -26,7 +26,7 @@ options(chron.year.expand =
 
 setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Controles Administrativos/Populis/")
 
-populis <- read_xlsx("dados1603.xlsx")
+populis <- read_xlsx("dados2406.xlsx")
 
 populis2 <- populis %>% select(CPF,CCusto,Empresa)
 
@@ -83,7 +83,7 @@ relat.populis2 <- bind_rows(populis2,demitidos2)
 
 setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Controles Administrativos/Bradesco/")
 
-posicao_bradesco <- read_xlsx("POSIÇÃO CADASTRAL 04.2021.xlsx" ,
+posicao_bradesco <- read_xlsx("POSIÇÃO CADASTRAL 08.2021.xlsx" ,
                                sheet = "POS. CADASTRAL (TITULAR)", skip = 2)
 
 posicao_bradesco <- posicao_bradesco %>% select(`NUMERO DO CERTIFICADO`,
@@ -106,7 +106,7 @@ names =  c("TIPO DO REGISTRO","NUMERO DA SUBFATURA","NUMERO DO CERTIFICADO",
            "CODIGO DO LANCAMENTO","CARGO / OCUPACAO","Matrícula","FILLER")
 
 faturamento.bradesco <- readr:: read_fwf(
-  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Controles Administrativos/Bradesco/FATURA TÉCNICA 04.2021.TXT",
+  file ="D:/Users/sb046971/OneDrive - Honda/Documentos/Controles Administrativos/Bradesco/FATURA TÉCNICA 08.2021.TXT",
   fwf_widths(widths, col_names = names), skip_empty_rows = T,skip = 1,
   col_types = cols("TIPO DO REGISTRO" = col_integer(),
                    "NUMERO DA SUBFATURA" = col_integer(),
@@ -213,15 +213,16 @@ relat.bradesco <- relat.bradesco %>% group_by(
                                                              Empresa),
                                                        TRUE ~ Empresa))
 
-relat.bradesco$elegibilidade <- ifelse(
-  relat.bradesco$`COD. GRAU PARENT.DEP.` == 0, "TITULAR", "DEPENDENTE")
+relat.bradesco$elegibilidade <- ifelse(is.na(
+  relat.bradesco$`CODIGO DO PLANO`),"DEV",ifelse(
+  relat.bradesco$`COD. GRAU PARENT.DEP.` == 0, "TITULAR", "DEPENDENTE"))
 
 relat.bradesco$`NUMERO DA SUBFATURA` <- as.numeric(relat.bradesco$`NUMERO DA SUBFATURA`)
 
 relat.bradesco <- relat.bradesco %>% unique(.)
 
-# fwrite(relat.bradesco,
-#        file = "z:/1.Saúde Assistencial/1.Medicina/BRADESCO/1.Faturamento/Honda/2021/04.ABRIL/faturatec0421.csv",dec = ",", sep = "|")
+fwrite(relat.bradesco,
+       file = "z:/1.Saúde Assistencial/1.Medicina/BRADESCO/1.Faturamento/Honda/2021/08.AGOSTO/faturatec0821.csv",dec = ",", sep = "|")
 
 # relat.bradesco <- relat.bradesco %>% filter(`NUMERO DA SUBFATURA` %in% c(1,20,31))
 
@@ -361,7 +362,7 @@ rateio.hab$valor.final <- round(rateio.hab$valor+rateio.hab$valor.iof,2)
 rateio.hab.final <- rateio.hab %>% select(CCusto,tit,valor.final)
 
 fwrite(rateio.hab.final, 
-file = "z:/1.Saúde Assistencial/1.Medicina/BRADESCO/1.Faturamento/Honda/2021/04.ABRIL/rateio-hab.csv",dec = ",", sep = "|")
+file = "z:/1.Saúde Assistencial/1.Medicina/BRADESCO/1.Faturamento/Honda/2021/08.AGOSTO/rateio-hab.csv",dec = ",", sep = "|")
 
 #### MAO ####
 
@@ -453,7 +454,7 @@ rateio.sao <- rateio.sao %>% filter(!is.na(CCusto))
 
 #### unimed ####
 
-setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Controles Administrativos/Unimed/02.2021/")
+setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Controles Administrativos/Unimed/04.2021/")
 
 faturamento.unimed <- list.files(pattern = ".CSV") %>%
   lapply(fread,dec = ",",colClasses = c("Cod Matricula Usuario" = "character",
@@ -566,7 +567,7 @@ pdca.unimed <- pdca.unimed %>% group_by(CCusto,Empresa,
 
 #### samel ####
 
-setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Controles Administrativos/Samel/02.2021")
+setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Controles Administrativos/Samel/04.2021")
 
 hca <- read_xlsx("1271 - HONDA COMPONENTES.xlsx")
 
@@ -577,6 +578,7 @@ hda <- read_xlsx("1270 - MOTO HONDA.xlsx")
 # # 
 # hca$PISPASEP <- as.character(hca$PISPASEP)
 # # hca$MATRICULAFUNCIONAL <- as.numeric(hca$MATRICULAFUNCIONAL)
+# hca$CONFERÊNCIA <- as.character(hca$CONFERÊNCIA)
 
 faturamento.samel <- bind_rows(hda,hca)
 
@@ -712,7 +714,7 @@ pdca.saude1 <- pdca.saude %>% group_by(`Centro de Custo`,
 pdca.saude1 <- as.data.frame(pdca.saude1)
 
 write.xlsx(pdca.saude1, file = "PDCA - Saude.xlsx",
-           sheetName="02.2021", append = T, row.names = F)
+           sheetName="04.2021", append = T, row.names = F)
 
 gc()
 gc()

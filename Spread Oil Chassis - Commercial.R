@@ -12,7 +12,7 @@ require(tidyr)
 
 #### CREATE LIST.FILES FROM BIND LINES IN 1 ARCHIVE ####
 
-setwd("D:/Users/sb046971/Documents/Douglas - Honda/")
+setwd("D:/Users/sb046971/OneDrive - Honda/Documentos/Douglas - Honda/")
 
 base_oleo <- list.files(pattern = "os_oleo") %>% lapply(
   fread, h = T, encoding = "UTF-8") %>% bind_rows()
@@ -33,3 +33,12 @@ fwrite(base_oleo_1, file = "D:/Users/sb046971/Documents/Douglas - Honda/os_oleo_
        sep = "|", dec = ",")
 fwrite(base_oleo_2, file = "D:/Users/sb046971/Documents/Douglas - Honda/os_oleo_base2.csv", 
        sep = "|", dec = ",")
+
+
+#### SAUDE MENTAL ####
+
+x <- fread(file = "D:/Users/sb046971/OneDrive - Honda/Documentos/Archives - Honda/Cópia de Relatório PDCA Honda - 20.07.21-Final.v1xlsx.csv", h = T)
+
+z <- x %>% select(-Empresa,-`Colababorador ou  Dependente`,-`Gênero`) %>% pivot_longer(-Unidade)
+
+w <- z %>% group_by(Unidade,value) %>% tally()
