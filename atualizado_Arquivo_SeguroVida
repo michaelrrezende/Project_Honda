@@ -1,0 +1,35 @@
+#### PACKAGES ####
+require(dplyr)
+require(purrr)
+require(readxl)  # Para ler arquivos XLSX
+require(openxlsx) # Para escrever arquivos XLSX sem depender do Java
+
+# Instala os pacotes, se necessário
+# install.packages(c("dplyr", "purrr", "readxl", "openxlsx"))
+
+############# BIND ARQUIVOS DE SEGURO DE VIDA E PRÉ-PROCESSAMENTO ######
+
+# Define o caminho de entrada e saída
+path_in <- "D:/Users/sb046971/OneDrive - Honda/Documentos/Tokio Bind/Tábua biométrica 082021/"
+file_out <- "d:/Users/sb046971/OneDrive - Honda/Documentos/Tokio Bind/TÁBUA BIOMÉTRICA 082021/BASE-Segmentada.xlsx"
+
+# Lê todos os arquivos .xlsx da pasta e combina-os
+# Substituímos 'fread' por 'read_excel'
+base <- list.files(path = path_in, pattern = ".xlsx", full.names = TRUE) %>%
+  map_df(~read_excel(., sheet = 1, col_types = c(
+      "text", "text", "text", "text", "text", "text", 
+      "numeric", "numeric", "numeric", "numeric", 
+      "text", "text", "text", "text"
+    ))) %>%
+  mutate(
+    DATA_ADMISSAO = as.Date(as.character(DATA_ADMISSAO), "%Y%m%d"),
+    DATA_NASC = as.Date(as.character(DATA_NASC), "%Y%m%d"),
+    DATA_INI_VIGENCIA = as.Date(as.character(DATA_INI_VIGENCIA), "%Y%m%d"),
+    NIVEIS = as.factor(paste(ESTITULANTE, SUB_ESTITULANTE))
+  )
+
+# Divide a base em uma lista de data frames, um para cada nível
+lista_planos <- split(base, base$NIVEIS)
+
+# Cria o arquivo Excel com uma planilha para cada elemento da lista
+write.xlsx(lista_planos, file = file_out, row.names = FALSE)
